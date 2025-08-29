@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background-color: #fff;
+}
+
+header {
+  background-color: #BCD6D0;
+  padding: 1rem;
+  text-align: right;
+}
+
+header a {
+  text-decoration: none;
+  color: #263238;
+  font-weight: bold;
+  font-size: 1.1rem;
+  margin-left: 1.5rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+header a.active {
+  background-color: #2C6975; /* highlight */
+  color: #fff; /* white text */
+}
+
+main {
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+}
+
+.left-column {
+  flex: 1;
+  text-align: center;
+}
+
+.eye-logo {
+  width: 350px;
+  margin-bottom: 1.5rem;
+}
+
+.tagline {
+  font-size: 1.3rem;
+  color: #263238;
+  max-width: 450px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.right-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.convert-btn {
+  background-color: #2C6975;
+  color: #fff;
+  border: none;
+  padding: 1rem 2rem;
+  font-size: 1.2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.convert-btn:hover {
+  background-color: #68B2A0;
+}
+
+footer {
+  background-color: #BCD6D0;
+  text-align: center;
+  padding: 1rem;
+  color: #000000;
+  font-size: 0.95rem;
+}
