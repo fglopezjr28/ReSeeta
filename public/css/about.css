@@ -1,64 +1,86 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --ink:#264C50;
+  --ink-2:#2A6B6F;
+  --teal:#2C6975;
+  --bg:#FFFFFF;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html, body {
+  height: 100%; /* ensure full height */
 }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background-color: #fff;
-  color: #263238;
-  line-height: 1.6;
+  font-family:'Inter', Arial, sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  display:flex;
+  flex-direction:column;
+  min-height:100vh;
 }
 
-header {
-  background-color: #BCD6D0;
-  padding: 1rem;
-  text-align: right;
+/* --- Floating nav (same style as landing) --- */
+.top-nav {
+  position:fixed;
+  top:24px;
+  right:36px;
+  display:flex;
+  gap:28px;
+  z-index:10;
+}
+.top-nav a {
+  text-decoration:none;
+  font-weight:600;
+  color:var(--ink);
+  transition:color .2s ease;
+}
+.top-nav a.active,
+.top-nav a:hover {
+  color:var(--ink-2);
 }
 
-header a {
-  text-decoration: none;
-  color: #263238;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-left: 1.5rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* --- About section --- */
+.about-section {
+  flex:1;
+  max-width:900px;
+  margin:0 auto;
+  padding: 120px 1.5rem 3rem; /* leave space for floating nav */
 }
 
-header a.active {
-  background-color: #2C6975;
-  color: #fff;
+.about-section h1 {
+  font-size: clamp(28px,4vw,40px);
+  font-weight:400;
+  margin-bottom:1.5rem;
+}
+.about-section h1 span {
+  font-weight:800;
+  color:var(--teal);
 }
 
-main {
-  flex: 1;
-  max-width: 900px;
-  margin: 3rem auto;
-  padding: 0 1.5rem;
+.about-section p {
+  margin-bottom:1.5rem;
+  font-size: clamp(16px,1.2vw,18px);
+  line-height:1.6;
 }
 
-main h1 {
-  font-size: 2rem;
-  color: #2C6975;
-  margin-bottom: 1rem;
-  text-align: center;
+/* --- Decorative bottom wave --- */
+.bottom-wave {
+  width: 100%;
+  height: 140px;              /* adjust height of wave band */
+  display: block;
+  margin-top: auto;           /* pushes wave to bottom */
+  line-height: 0;             /* remove inline spacing */
 }
-
-main p {
-  margin-bottom: 1.2rem;
-  font-size: 1.05rem;
+.bottom-wave path {
+  fill: #BCD6D0;              /* wave color */
 }
 
 footer {
-  background-color: #BCD6D0;
-  text-align: center;
-  padding: 1rem;
-  color: #000000;
-  font-size: 0.95rem;
+  text-align:center;
+  padding:20px;
+  font-size:0.9rem;
+  color:#516a6c;
+  background:#BCD6D0; /* matches wave color */
 }
+

@@ -1,91 +1,188 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+:root {
+  --ink:#264C50;
+  --ink-2:#2A6B6F;
+  --teal:#C7DDD8;
+  --cta-bg:#BFD2CC;
+  --cta-hover:#cfe0db;
+  --shadow:0 6px 0 rgba(0,0,0,.12);
 }
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+html, body { overflow-x: hidden; }
 
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  font-family: Arial, sans-serif;
-  background-color: #fff;
+  min-height:100vh;
+  font-family:'Inter', Arial, sans-serif;
+  background:#BCD6D0;
+  display:flex;
+  flex-direction:column;
+  color:var(--ink);
 }
 
-header {
-  background-color: #BCD6D0;
-  padding: 1rem;
-  text-align: right;
+.bg-curve{
+  position: fixed;
+  top: -190px;
+  left: -2vw;
+  width: 108vw;
+  height: auto;
+  z-index: -1;
+  pointer-events: none;
 }
 
-header a {
-  text-decoration: none;
-  color: #263238;
-  font-weight: bold;
-  font-size: 1.1rem;
-  margin-left: 1.5rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  transition: background-color 0.3s ease, color 0.3s ease;
+/* === Floating nav === */
+.top-nav {
+  position:fixed;
+  top:24px;
+  right:36px;
+  display:flex;
+  gap:28px;
+  z-index:10;
+}
+.top-nav a {
+  text-decoration:none;
+  font-weight:600;
+  color:var(--ink);
+  transition:color .2s ease;
+}
+.top-nav a.active,
+.top-nav a:hover {
+  color:var(--ink-2);
 }
 
-header a.active {
-  background-color: #2C6975; /* highlight */
-  color: #fff; /* white text */
-}
-
-main {
-  flex: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 3rem;
+.hero {
+  flex:1;
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items:start;
+  padding: clamp(24px,5vw,56px);
+  padding-top:200px;
+  gap:24px;
 }
 
 .left-column {
-  flex: 1;
-  text-align: center;
+  max-width:800px;
+  text-align:left;
+  padding-left: 50px;
 }
-
 .eye-logo {
-  width: 350px;
-  margin-bottom: 1.5rem;
+  width:min(520px,75vw);
+  margin-bottom:0.5rem;
+  filter:drop-shadow(var(--shadow));
 }
-
+.brand-title {
+  font-size: clamp(56px,9vw,112px);
+  font-weight:800;
+  margin:8px 0 18px;
+  text-shadow: var(--shadow);
+}
 .tagline {
-  font-size: 1.3rem;
-  color: #263238;
-  max-width: 450px;
-  margin: 0 auto;
-  line-height: 1.6;
+  font-size: clamp(18px,2.2vw,26px);
+  line-height:1.45;
+  max-width: 720px;
 }
+.tagline strong { font-weight:800; }
 
+/* === CTA button column === */
 .right-column {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  padding-top: clamp(160px, 21vw, 365px);
+  margin-right: 50px;
 }
-
 .convert-btn {
-  background-color: #2C6975;
-  color: #fff;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
+  display:inline-block;
+  padding: 16px 28px;
+  font-size: clamp(18px,2.2vw,26px);
+  font-weight:800;
+  color:var(--ink);
+  background:var(--cta-bg);
+  border-radius:14px;
+  text-decoration:none;
+  box-shadow: var(--shadow);
+  transition: transform .15s ease, box-shadow .15s ease, background .2s ease;
+
+  white-space: nowrap;   /* keep text on one line */
+  min-width: 220px;      /* adjust until it fits nicely */
+  text-align: center;    /* keep text centered */
 }
 
 .convert-btn:hover {
-  background-color: #68B2A0;
+  background:var(--cta-hover);
+  transform:translateY(-2px);
+  box-shadow:0 10px 20px rgba(0,0,0,.12);
 }
 
+/* === Footer (plain text) === */
 footer {
-  background-color: #BCD6D0;
-  text-align: center;
-  padding: 1rem;
-  color: #000000;
-  font-size: 0.95rem;
+  text-align:center;
+  padding:20px;
+  font-size:0.9rem;
+  color:#516a6c;
+}
+
+/* === Responsive tweaks === */
+
+@media (max-width: 1200px) {
+  .convert-btn { margin-top: 260px; }
+}
+
+/* ===== Extra narrow desktop (751–900px) but still not "mobile" ===== */
+@media (max-width: 900px) and (min-width: 751px){
+  .bg-curve{
+    top: -140px;
+    left: -10vw;
+    width: 155vw;                 /* more zoom-out for smaller windows */
+  }
+
+  .hero{
+    padding-top: 150px;
+    grid-template-columns: 1fr auto; /* keep 2 cols, tighter gap */
+    gap: 16px;
+  }
+
+  .eye-logo{ width: min(380px, 60vw); }
+
+  .right-column{ padding-top: clamp(50px, 11vh, 100px); }
+}
+
+/* ==== Ultra-narrow fix (no scrollbar, button under tagline) ==== */
+@media (max-width: 600px) {
+  /* keep the SVG fully inside the viewport; reposition visually only */
+  .bg-curve {
+    left: 0;
+    width: 100vw;                 /* never exceed viewport */
+    top: -230px;                  /* lift so more white shows */
+    transform: translateX(-12%) scale(1.18);
+    transform-origin: top left;   /* transform doesn't cause scrollbars */
+  }
+
+  /* stack content; CTA goes under tagline */
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 150px;
+    gap: 16px;
+  }
+
+  .left-column { padding-left: 20px; max-width: 92vw; }
+  .eye-logo    { width: 70vw; max-width: 360px; height: auto; }
+
+  .right-column {
+    justify-content: flex-start;  /* align button left under tagline */
+    padding-top: 14px;
+    margin-right: 0;
+  }
+
+  .convert-btn {
+    margin-top: 8px;
+    white-space: nowrap;
+    min-width: 230px;             /* keep “Start Converting” on one line */
+    font-size: 18px;              /* keep legible but compact */
+  }
+}
+
+/* Optional: don’t push the button way down on narrow screens */
+@media (max-width: 900px) {
+  .convert-btn { margin-top: 12px !important; }
 }
