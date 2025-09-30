@@ -8,8 +8,11 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="{{ asset('css/convert.css') }}">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <style>
     #startConvert:disabled { opacity:.6; cursor:not-allowed; }
+    /* optional helper */
+    .is-hidden { display:none !important; }
   </style>
 </head>
 <body>
@@ -28,7 +31,7 @@
       <div class="panes">
         <!-- Upload panel -->
         <label class="pane upload" for="fileInput">
-          <!-- ✅ DELETE BUTTON -->
+          <!-- Delete uploaded image -->
           <button type="button"
                   id="btnDeleteUpload"
                   class="icon-btn icon-delete"
@@ -71,7 +74,7 @@
 
         <!-- Result panel -->
         <div class="pane result" aria-live="polite" aria-atomic="true">
-          <!-- ✅ HISTORY BUTTON -->
+          <!-- History button -->
           <button type="button"
                   id="btnHistory"
                   class="icon-btn icon-history"
@@ -85,18 +88,17 @@
           <span class="placeholder">Result Here</span>
           <div class="result-box" id="resultBox"></div>
 
-          <!-- Converting loader (hidden until started) -->
+          <!-- Converting loader (hidden until processing stage) -->
           <div class="loading" id="convertLoading" hidden aria-live="polite" aria-busy="true">
             <div class="spinner" aria-hidden="true"></div>
             <div class="loading-text">Converting...</div>
           </div>
 
-          <!-- ✅ Slide-down History panel -->
+          <!-- Slide-down History panel -->
           <div id="historyPanel" class="history-panel" hidden>
             <div class="history-header">
               <strong>Recent Results</strong>
               <div>
-                <!-- ✅ CLEAR HISTORY BUTTON -->
                 <button type="button" id="btnClearHistory" class="history-clear" aria-label="Clear history">Clear</button>
                 <button type="button" id="btnCloseHistory" class="history-close" aria-label="Close history">✕</button>
               </div>
@@ -119,6 +121,15 @@
   </footer>
 
 <script>
+  /* =========================
+     Config
+  ========================= */
+  // Use your Laravel route that proxies to Python
+  const API_URL = "{{ route('ocr.predict') }}";
+
+  /* =========================
+     Element refs
+  ========================= */
   const fileInput = document.getElementById('fileInput');
   const previewImage = document.getElementById('previewImage');
 
@@ -137,16 +148,22 @@
   const btnDeleteUpload = document.getElementById('btnDeleteUpload');
   const btnHistory = document.getElementById('btnHistory');
   const btnCloseHistory = document.getElementById('btnCloseHistory');
-  const btnClearHistory = document.getElementById('btnClearHistory'); // ✅
+  const btnClearHistory = document.getElementById('btnClearHistory');
   const historyPanel = document.getElementById('historyPanel');
+
+  /* =========================
+     State
+  ========================= */
   const HISTORY_KEY = 'reseeta_history_v1';
   const HISTORY_LIMIT = 20;
+  let uploadTimer = null;       // (not used with XHR progress, kept for compatibility)
+  let working = false;          // prevents double-submit
+  let lastUploadedId = null;    // history link
+  let currentXHR = null;        // in-flight request (for cancel)
 
-  let uploadTimer = null;
-  let working = false;        // prevent auto-start / double-start
-  let lastUploadedId = null;  // to update after conversion
-
-  /* ========= History helpers ========= */
+  /* =========================
+     History helpers
+  ========================= */
   function loadHistory() {
     try { return JSON.parse(localStorage.getItem(HISTORY_KEY)) || []; }
     catch { return []; }
@@ -158,7 +175,7 @@
     const items = loadHistory();
     items.unshift({
       id, name, dataUrl,
-      status: status || 'uploaded',    // 'uploaded' | 'converted'
+      status: status || 'uploaded', // 'uploaded' | 'converted'
       resultText: resultText || null,
       ts: Date.now()
     });
@@ -173,13 +190,16 @@
     }
   }
   function formatDate(ts) { return new Date(ts).toLocaleString(); }
+  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
+  function shorten(s, n){ return s.length>n ? s.slice(0, n-1)+'…' : s; }
+
   function renderHistory() {
     const items = loadHistory();
     const el = historyPanel.querySelector('.history-body');
     if (!items.length) { el.innerHTML = '<em>No history yet.</em>'; return; }
     el.innerHTML = items.map(it => `
       <div class="history-item" data-id="${it.id}">
-        <img src="${it.dataUrl}" alt="${it.name}">
+        <img src="${it.dataUrl}" alt="${escapeHtml(it.name)}">
         <div>
           <div class="title">${escapeHtml(it.name)}</div>
           <div class="meta">${it.status === 'converted' ? 'Converted' : 'Uploaded'} • ${formatDate(it.ts)}</div>
@@ -199,10 +219,7 @@
       });
     });
   }
-  function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
-  function shorten(s, n){ return s.length>n ? s.slice(0, n-1)+'…' : s; }
 
-  // ✅ Clear all local history (does NOT touch server files)
   function clearHistory(alsoResetUI = false){
     if (!confirm('Clear all local history on this browser?')) return;
     localStorage.removeItem(HISTORY_KEY);
@@ -215,13 +232,16 @@
     }
   }
 
-  /* ========= UI helpers ========= */
+  /* =========================
+     UI helpers
+  ========================= */
   function showProgressOnly() {
     progressCard.hidden = false;
     progressCard.classList.remove('is-hidden');
     [...uploadInner.children].forEach(el => {
       if (el !== progressCard) el.classList.add('is-hidden');
     });
+    // keep preview visible only after selection (not during upload here)
     previewImage.style.display = 'none';
     previewImage.classList.add('is-hidden');
   }
@@ -243,11 +263,14 @@
     progressCard.hidden = true;
 
     previewImage.style.display = 'none';
+    previewImage.classList.add('is-hidden');
     [...uploadInner.children].forEach(el => {
       if (el !== progressCard) el.classList.remove('is-hidden');
     });
 
+    // Keep spinner hidden until processing stage
     convertLoading.hidden = true;
+
     resultPlaceholder?.classList.remove('is-hidden');
     resultBox?.classList.remove('is-hidden');
     resultBox.textContent = '';
@@ -255,47 +278,113 @@
     document.body.classList.remove('recognize-busy');
     if (uploadTimer) { clearInterval(uploadTimer); uploadTimer = null; }
     working = false;
+
+    if (currentXHR) { try { currentXHR.abort(); } catch {} currentXHR = null; }
+
     startBtn.disabled = !fileInput.files?.length;
   }
 
   function enterUploadingUI() {
     showProgressOnly();
-    convertLoading.hidden = false;
+    // spinner appears only during "processing", not upload
     resultPlaceholder?.classList.add('is-hidden');
     resultBox?.classList.add('is-hidden');
     document.body.classList.add('recognize-busy');
   }
 
-  function simulateUploadThenConvert() {
-    let p = 0;
-    uploadTimer = setInterval(() => {
-      p = Math.min(p + Math.random() * 14, 100);
+  /* =========================
+     Upload + recognize
+  ========================= */
+  async function uploadAndRecognize() {
+    const file = fileInput.files?.[0];
+    if (!file) return;
+
+    enterUploadingUI();
+    progressStatus.textContent = 'Uploading…';
+
+    const fd = new FormData();
+    // IMPORTANT: field name must be 'file' to match OcrController
+    fd.append('file', file, file.name);
+
+    currentXHR = new XMLHttpRequest();
+    currentXHR.open('POST', API_URL, true);
+    currentXHR.responseType = 'json';
+    // CSRF header for Laravel
+    currentXHR.setRequestHeader('X-CSRF-TOKEN', document.querySelector("meta[name='csrf-token']").getAttribute('content'));
+
+    // upload progress
+    currentXHR.upload.onprogress = (e) => {
+      if (!e.lengthComputable) return;
+      const p = Math.max(0, Math.min(100, (e.loaded / e.total) * 100));
       progressBar.style.width = p + '%';
       progressPercent.textContent = Math.round(p) + '%';
+    };
 
-      if (p >= 100) {
-        clearInterval(uploadTimer);
-        progressStatus.textContent = 'Completed';
+    // after upload completes, switch to processing spinner and keep preview visible
+    currentXHR.upload.onload = () => {
+      progressBar.style.width = '100%';
+      progressPercent.textContent = '100%';
+      progressStatus.textContent = 'Processing…';
+      showPreviewOnly();          // preview stays visible during processing
+      convertLoading.hidden = false; // show spinner now
+    };
 
-        setTimeout(showPreviewOnly, 250);
+    currentXHR.onreadystatechange = () => {
+      if (currentXHR.readyState !== 4) return;
 
-        setTimeout(() => {
-          convertLoading.hidden = true;
+      convertLoading.hidden = true;
+      document.body.classList.remove('recognize-busy');
+      working = false;
+
+      try {
+        if (currentXHR.status >= 200 && currentXHR.status < 300) {
+          const data = currentXHR.response || {};
+          if (data.ok === false) throw new Error(data.detail || data.error || 'Model service failed');
+
+          const text = data.text || '(empty)';
+          resultPlaceholder?.classList.add('is-hidden');
           resultBox.classList.remove('is-hidden');
-          const text = '✅ Conversion complete. (Replace with real output)';
           resultBox.textContent = text;
-          document.body.classList.remove('recognize-busy');
-          working = false;
 
           if (lastUploadedId) {
             updateHistoryItem(lastUploadedId, { status: 'converted', resultText: text, ts: Date.now() });
           }
-        }, 1500);
+        } else {
+          const err = currentXHR.response?.detail || currentXHR.response?.error || currentXHR.statusText || 'Upload failed';
+          throw new Error(err);
+        }
+      } catch (e) {
+        resultPlaceholder?.classList.add('is-hidden');
+        resultBox.classList.remove('is-hidden');
+        resultBox.textContent = '❌ ' + (e?.message || 'Unexpected error');
+        if (lastUploadedId) {
+          updateHistoryItem(lastUploadedId, { status: 'converted', resultText: '(error)', ts: Date.now() });
+        }
+      } finally {
+        currentXHR = null;
       }
-    }, 200);
+    };
+
+    currentXHR.onerror = () => {
+      convertLoading.hidden = true;
+      working = false;
+      resultBox.textContent = '❌ Network error';
+      currentXHR = null;
+    };
+
+    currentXHR.onabort = () => {
+      convertLoading.hidden = true;
+      working = false;
+      resultBox.textContent = '';
+      currentXHR = null;
+    };
+
+    currentXHR.send(fd);
   }
 
-  /* ========= Events ========= */
+  /* =========================
+     Events
+  ========================= */
   fileInput.addEventListener('change', (e) => {
     const file = e.target.files?.[0];
     startBtn.disabled = !file;
@@ -304,10 +393,15 @@
     const r = new FileReader();
     r.onload = ev => {
       const dataUrl = ev.target.result;
+      // Show preview immediately; hide the upload UI
       previewImage.src = dataUrl;
-      previewImage.style.display = 'none'; // show later at 100%
+      previewImage.style.display = 'block';
+      [...uploadInner.children].forEach(el => {
+        if (el !== previewImage && el !== progressCard) el.classList.add('is-hidden');
+      });
 
-      lastUploadedId = crypto.randomUUID ? crypto.randomUUID() : String(Date.now());
+      // history
+      lastUploadedId = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
       addHistoryItem({
         id: lastUploadedId,
         name: file.name,
@@ -324,14 +418,17 @@
     if (working) return;
     if (!fileInput.files || !fileInput.files[0]) return;
     working = true;
-    enterUploadingUI();
-    simulateUploadThenConvert();
+    uploadAndRecognize();
   });
 
-  cancelBtn.addEventListener('click', resetUploadingUI);
+  cancelBtn.addEventListener('click', () => {
+    if (currentXHR) currentXHR.abort();
+    resetUploadingUI();
+  });
 
   btnDeleteUpload.addEventListener('click', (e) => {
     e.preventDefault();
+    if (currentXHR) currentXHR.abort();
     fileInput.value = '';
     document.getElementById('fileName').textContent = 'filename.png';
     resetUploadingUI();
@@ -354,12 +451,9 @@
     btnHistory.setAttribute('aria-expanded', 'false');
   });
 
-  // ✅ Wire up Clear button
   btnClearHistory?.addEventListener('click', () => clearHistory(false));
-  // If you prefer to also reset the current UI, pass true:
-  // btnClearHistory?.addEventListener('click', () => clearHistory(true));
 
-  // Initialize state on load & BFCache restore
+  // Init on load & BFCache restore
   resetUploadingUI();
   window.addEventListener('pageshow', resetUploadingUI);
 </script>

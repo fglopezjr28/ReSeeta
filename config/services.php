@@ -31,4 +31,12 @@ return [
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
 
+    
+    // ...
+    'py_model' => [
+        'base_url' => env('PY_MODEL_BASE_URL', 'http://localhost:8001'),
+        'api_key'  => env('PY_MODEL_API_KEY', null),
+        'timeout'  => (int) env('PY_MODEL_TIMEOUT', 15),
+    ],
+
 ];
