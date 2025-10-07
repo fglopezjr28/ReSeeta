@@ -7,12 +7,141 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+
+  <!-- Keep your existing palette & layout -->
   <link rel="stylesheet" href="{{ asset('css/convert.css') }}">
   <meta name="csrf-token" content="{{ csrf_token() }}">
+
   <style>
+    /* Small, tasteful tweaks that reuse your variables from convert.css */
+    :root {
+      /* relies on --ink, --ink-2, --teal, --shell, --brand already defined */
+    }
+
+    /* Page polish */
+    .convert-shell {
+      box-shadow: 0 20px 40px rgba(0,0,0,.10);
+      border: 1px solid #dfe6e4;
+    }
+    .pane {
+      border: 1px solid #e5ecea;
+      box-shadow: 0 1px 0 rgba(0,0,0,.03) inset;
+    }
+    .pane.result {
+      border: 1px solid #e5ecea;
+      align-items: stretch;
+      gap: 10px;
+      padding: 16px;
+    }
+    .pane.result .placeholder {
+      font-weight: 700;
+      color: var(--ink-2);
+      margin: 2px 0 8px;
+    }
+    .result-box {
+      font-size: 15px;
+      line-height: 1.55;
+      box-shadow: 0 1px 0 rgba(0,0,0,.02) inset;
+    }
+
+    /* Actions row refinement */
+    .actions {
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .actions .group {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: #fff;
+      border: 1px solid #e5ecea;
+      border-radius: 12px;
+      box-shadow: 0 1px 0 rgba(0,0,0,.03) inset;
+    }
+    .actions label {
+      font-weight: 600;
+      color: var(--ink);
+    }
+    #modelSelect {
+      appearance: none;
+      background: #fff;
+      border: 1px solid #dfe6e4;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font-weight: 600;
+      color: var(--ink-2);
+      outline: none;
+    }
+    #modelSelect:focus {
+      border-color: var(--brand);
+      box-shadow: 0 0 0 3px rgba(106,177,163,.20);
+    }
+
+    /* Toggle – Contextual database (UI only) */
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      user-select: none;
+    }
+    .switch {
+      --w: 46px;
+      --h: 26px;
+      position: relative;
+      width: var(--w);
+      height: var(--h);
+      border-radius: var(--h);
+      background: #dfe6e4;
+      border: 1px solid #cfd8d6;
+      transition: background .2s ease, border-color .2s ease;
+      cursor: pointer;
+    }
+    .switch input {
+      opacity: 0;
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      cursor: pointer;
+    }
+    .switch .knob {
+      position: absolute;
+      top: 2px; left: 2px;
+      width: calc(var(--h) - 4px);
+      height: calc(var(--h) - 4px);
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 1px 2px rgba(0,0,0,.15);
+      transition: transform .2s ease;
+    }
+    .switch input:checked + .knob {
+      transform: translateX(calc(var(--w) - var(--h)));
+    }
+    .switch input:checked ~ .bg {
+      background: var(--brand);
+      border-color: var(--brand);
+    }
+    .toggle .label {
+      font-weight: 600;
+      color: var(--ink-2);
+    }
+
+    /* Buttons */
+    #startConvert {
+      background: var(--ink);
+      border: 1px solid #243f42;
+    }
+    #startConvert:hover {
+      transform: translateY(-1px);
+    }
+
+    /* Helpers from your existing styles */
     #startConvert:disabled { opacity:.6; cursor:not-allowed; }
-    /* optional helper */
     .is-hidden { display:none !important; }
+    .model-note { font-size:.9rem; color:#506A6D; }
   </style>
 </head>
 <body>
@@ -31,7 +160,6 @@
       <div class="panes">
         <!-- Upload panel -->
         <label class="pane upload" for="fileInput">
-          <!-- Delete uploaded image -->
           <button type="button"
                   id="btnDeleteUpload"
                   class="icon-btn icon-delete"
@@ -42,20 +170,22 @@
 
           <input id="fileInput" type="file" accept="image/*" hidden>
           <div class="upload-inner">
-            <!-- Default upload UI -->
-            <div class="upload-icon" aria-hidden="true">🖼️</div>
+            <!-- Default state -->
+            <div class="upload-icon" aria-hidden="true">Upload Image</div>
             <div class="upload-title">Upload Photo</div>
             <p class="upload-note">
               Maximum file size: 10&nbsp;MB. Only clear, scanned medical prescriptions are accepted.
             </p>
+
+            <!-- Preview band -->
             <img id="previewImage" alt="Image Preview" />
 
-            <!-- Uploading progress (hidden until started) -->
+            <!-- Uploading progress -->
             <div class="progress-card" id="progressCard" hidden>
               <div class="progress-title">Uploading</div>
 
               <div class="progress-row">
-                <div class="file-icon" aria-hidden="true">🖼️</div>
+                <div class="file-icon" aria-hidden="true">Image</div>
                 <div class="file-name" id="fileName">filename.png</div>
                 <button class="progress-cancel" id="cancelUpload" type="button" aria-label="Cancel upload">✕</button>
               </div>
@@ -74,7 +204,6 @@
 
         <!-- Result panel -->
         <div class="pane result" aria-live="polite" aria-atomic="true">
-          <!-- History button -->
           <button type="button"
                   id="btnHistory"
                   class="icon-btn icon-history"
@@ -85,10 +214,11 @@
             <img src="{{ asset('assets/history.png') }}" alt="History" />
           </button>
 
-          <span class="placeholder">Result Here</span>
+          <!-- This text will switch to “Result using MODEL” on success -->
+          <span class="placeholder" id="resultHeading">Result Here</span>
+
           <div class="result-box" id="resultBox"></div>
 
-          <!-- Converting loader (hidden until processing stage) -->
           <div class="loading" id="convertLoading" hidden aria-live="polite" aria-busy="true">
             <div class="spinner" aria-hidden="true"></div>
             <div class="loading-text">Converting...</div>
@@ -110,8 +240,29 @@
         </div>
       </div>
 
+      <!-- Actions -->
       <div class="actions">
+        <div class="group">
+          <label for="modelSelect">Model:</label>
+          <select id="modelSelect">
+            <option value="vit" selected>ViT-CRNN (Proposed)</option>
+            <option value="crnn">CRNN only (Baseline)</option>
+          </select>
+        </div>
+
+        <div class="group toggle" title="Contextual database (coming soon)">
+          <span class="label">Contextual database</span>
+          <label class="switch">
+            <input type="checkbox" id="contextToggle" />
+            <span class="knob"></span>
+            <span class="bg" aria-hidden="true"></span>
+          </label>
+        </div>
+
         <button id="startConvert" type="button" disabled>Recognize Prescription</button>
+
+        <!-- Subtle note about last model used (optional) -->
+        <span id="modelUsedNote" class="model-note" aria-live="polite"></span>
       </div>
     </section>
   </main>
@@ -124,7 +275,6 @@
   /* =========================
      Config
   ========================= */
-  // Use your Laravel route that proxies to Python
   const API_URL = "{{ route('ocr.predict') }}";
 
   /* =========================
@@ -142,7 +292,7 @@
   const uploadInner = document.querySelector('.upload-inner');
 
   const convertLoading = document.getElementById('convertLoading');
-  const resultPlaceholder = document.querySelector('.pane.result .placeholder');
+  const resultHeading = document.getElementById('resultHeading');
   const resultBox = document.getElementById('resultBox');
 
   const btnDeleteUpload = document.getElementById('btnDeleteUpload');
@@ -151,15 +301,26 @@
   const btnClearHistory = document.getElementById('btnClearHistory');
   const historyPanel = document.getElementById('historyPanel');
 
+  const modelSelect = document.getElementById('modelSelect');
+  const modelUsedNote = document.getElementById('modelUsedNote');
+  const contextToggle = document.getElementById('contextToggle'); // UI only
+
   /* =========================
      State
   ========================= */
   const HISTORY_KEY = 'reseeta_history_v1';
   const HISTORY_LIMIT = 20;
-  let uploadTimer = null;       // (not used with XHR progress, kept for compatibility)
-  let working = false;          // prevents double-submit
-  let lastUploadedId = null;    // history link
-  let currentXHR = null;        // in-flight request (for cancel)
+  const MODEL_KEY = 'reseeta_model_choice';
+
+  let working = false;
+  let lastUploadedId = null;
+  let currentXHR = null;
+
+  /* =========================
+     Model choice memory
+  ========================= */
+  function getSavedModel(){ return localStorage.getItem(MODEL_KEY) || 'vit'; }
+  function saveModel(v){ localStorage.setItem(MODEL_KEY, v); }
 
   /* =========================
      History helpers
@@ -175,7 +336,7 @@
     const items = loadHistory();
     items.unshift({
       id, name, dataUrl,
-      status: status || 'uploaded', // 'uploaded' | 'converted'
+      status: status || 'uploaded',
       resultText: resultText || null,
       ts: Date.now()
     });
@@ -191,7 +352,7 @@
   }
   function formatDate(ts) { return new Date(ts).toLocaleString(); }
   function escapeHtml(s){ return String(s).replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m])); }
-  function shorten(s, n){ return s.length>n ? s.slice(0, n-1)+'…' : s; }
+  function shorten(s, n){ return s && s.length>n ? s.slice(0, n-1)+'…' : (s || ''); }
 
   function renderHistory() {
     const items = loadHistory();
@@ -207,6 +368,7 @@
         </div>
       </div>
     `).join('');
+
     el.querySelectorAll('.history-item').forEach(node => {
       node.addEventListener('click', () => {
         const id = node.getAttribute('data-id');
@@ -215,7 +377,7 @@
         previewImage.src = item.dataUrl;
         previewImage.style.display = 'block';
         resultBox.textContent = item.resultText || '';
-        resultPlaceholder.classList.toggle('is-hidden', !!item.resultText);
+        // Keep heading reflecting last known model if any
       });
     });
   }
@@ -241,7 +403,6 @@
     [...uploadInner.children].forEach(el => {
       if (el !== progressCard) el.classList.add('is-hidden');
     });
-    // keep preview visible only after selection (not during upload here)
     previewImage.style.display = 'none';
     previewImage.classList.add('is-hidden');
   }
@@ -268,34 +429,32 @@
       if (el !== progressCard) el.classList.remove('is-hidden');
     });
 
-    // Keep spinner hidden until processing stage
     convertLoading.hidden = true;
 
-    resultPlaceholder?.classList.remove('is-hidden');
-    resultBox?.classList.remove('is-hidden');
+    // Reset heading + result box
+    resultHeading.textContent = 'Result Here';
+    resultHeading.classList.remove('is-hidden');
     resultBox.textContent = '';
-
-    document.body.classList.remove('recognize-busy');
-    if (uploadTimer) { clearInterval(uploadTimer); uploadTimer = null; }
-    working = false;
 
     if (currentXHR) { try { currentXHR.abort(); } catch {} currentXHR = null; }
 
     startBtn.disabled = !fileInput.files?.length;
+    working = false;
+
+    if (modelUsedNote) modelUsedNote.textContent = '';
   }
 
   function enterUploadingUI() {
     showProgressOnly();
-    // spinner appears only during "processing", not upload
-    resultPlaceholder?.classList.add('is-hidden');
-    resultBox?.classList.add('is-hidden');
+    // We keep the heading visible; result box is hidden during processing
+    resultBox.classList.add('is-hidden');
     document.body.classList.add('recognize-busy');
   }
 
   /* =========================
      Upload + recognize
   ========================= */
-  async function uploadAndRecognize() {
+  function uploadAndRecognize() {
     const file = fileInput.files?.[0];
     if (!file) return;
 
@@ -303,60 +462,71 @@
     progressStatus.textContent = 'Uploading…';
 
     const fd = new FormData();
-    // IMPORTANT: field name must be 'file' to match OcrController
     fd.append('file', file, file.name);
+    fd.append('model', modelSelect ? modelSelect.value : 'vit');
 
-    currentXHR = new XMLHttpRequest();
-    currentXHR.open('POST', API_URL, true);
-    currentXHR.responseType = 'json';
-    // CSRF header for Laravel
-    currentXHR.setRequestHeader('X-CSRF-TOKEN', document.querySelector("meta[name='csrf-token']").getAttribute('content'));
+    const xhr = new XMLHttpRequest();
+    currentXHR = xhr;
+    xhr.open('POST', API_URL, true);
+    xhr.responseType = 'json';
+    xhr.setRequestHeader('X-CSRF-TOKEN', document.querySelector("meta[name='csrf-token']").getAttribute('content'));
 
-    // upload progress
-    currentXHR.upload.onprogress = (e) => {
+    xhr.upload.onprogress = (e) => {
       if (!e.lengthComputable) return;
       const p = Math.max(0, Math.min(100, (e.loaded / e.total) * 100));
       progressBar.style.width = p + '%';
       progressPercent.textContent = Math.round(p) + '%';
     };
 
-    // after upload completes, switch to processing spinner and keep preview visible
-    currentXHR.upload.onload = () => {
+    xhr.upload.onload = () => {
       progressBar.style.width = '100%';
       progressPercent.textContent = '100%';
       progressStatus.textContent = 'Processing…';
-      showPreviewOnly();          // preview stays visible during processing
-      convertLoading.hidden = false; // show spinner now
+      showPreviewOnly();
+      convertLoading.hidden = false;
     };
 
-    currentXHR.onreadystatechange = () => {
-      if (currentXHR.readyState !== 4) return;
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState !== 4) return;
 
       convertLoading.hidden = true;
       document.body.classList.remove('recognize-busy');
       working = false;
 
       try {
-        if (currentXHR.status >= 200 && currentXHR.status < 300) {
-          const data = currentXHR.response || {};
+        if (xhr.status >= 200 && xhr.status < 300) {
+          const data = xhr.response || {};
           if (data.ok === false) throw new Error(data.detail || data.error || 'Model service failed');
 
-          const text = data.text || '(empty)';
-          resultPlaceholder?.classList.add('is-hidden');
+          const text = data.text || data.prediction || '';
+          const used = (data.model_used || modelSelect.value || '').toString().trim();
+
+          // Show result and update heading to "Result using MODEL"
           resultBox.classList.remove('is-hidden');
-          resultBox.textContent = text;
+          resultBox.textContent = text || '(empty)';
+          if (used) {
+            resultHeading.textContent = `Result using ${used.toUpperCase()}`;
+          } else {
+            resultHeading.textContent = 'Result';
+          }
+
+          // Optional note near controls
+          if (modelUsedNote) {
+            modelUsedNote.textContent = used ? `Last model: ${used.toUpperCase()}` : '';
+          }
 
           if (lastUploadedId) {
             updateHistoryItem(lastUploadedId, { status: 'converted', resultText: text, ts: Date.now() });
           }
         } else {
-          const err = currentXHR.response?.detail || currentXHR.response?.error || currentXHR.statusText || 'Upload failed';
+          const err = xhr.response?.detail || xhr.response?.error || xhr.statusText || 'Upload failed';
           throw new Error(err);
         }
       } catch (e) {
-        resultPlaceholder?.classList.add('is-hidden');
         resultBox.classList.remove('is-hidden');
-        resultBox.textContent = '❌ ' + (e?.message || 'Unexpected error');
+        resultBox.textContent = (e?.message || 'Unexpected error');
+        resultHeading.textContent = 'Result';
+        if (modelUsedNote) modelUsedNote.textContent = '';
         if (lastUploadedId) {
           updateHistoryItem(lastUploadedId, { status: 'converted', resultText: '(error)', ts: Date.now() });
         }
@@ -365,21 +535,26 @@
       }
     };
 
-    currentXHR.onerror = () => {
+    xhr.onerror = () => {
       convertLoading.hidden = true;
       working = false;
-      resultBox.textContent = '❌ Network error';
+      resultBox.classList.remove('is-hidden');
+      resultBox.textContent = 'Network error';
+      resultHeading.textContent = 'Result';
+      if (modelUsedNote) modelUsedNote.textContent = '';
       currentXHR = null;
     };
 
-    currentXHR.onabort = () => {
+    xhr.onabort = () => {
       convertLoading.hidden = true;
       working = false;
       resultBox.textContent = '';
+      resultHeading.textContent = 'Result Here';
+      if (modelUsedNote) modelUsedNote.textContent = '';
       currentXHR = null;
     };
 
-    currentXHR.send(fd);
+    xhr.send(fd);
   }
 
   /* =========================
@@ -393,7 +568,6 @@
     const r = new FileReader();
     r.onload = ev => {
       const dataUrl = ev.target.result;
-      // Show preview immediately; hide the upload UI
       previewImage.src = dataUrl;
       previewImage.style.display = 'block';
       [...uploadInner.children].forEach(el => {
@@ -401,13 +575,9 @@
       });
 
       // history
-      lastUploadedId = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
-      addHistoryItem({
-        id: lastUploadedId,
-        name: file.name,
-        dataUrl,
-        status: 'uploaded'
-      });
+      const id = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
+      lastUploadedId = id;
+      addHistoryItem({ id, name: file.name, dataUrl, status: 'uploaded' });
     };
     r.readAsDataURL(file);
 
@@ -453,9 +623,16 @@
 
   btnClearHistory?.addEventListener('click', () => clearHistory(false));
 
-  // Init on load & BFCache restore
-  resetUploadingUI();
-  window.addEventListener('pageshow', resetUploadingUI);
+  function initUI(){
+    resetUploadingUI();
+    if (modelSelect) {
+      modelSelect.value = getSavedModel();
+      modelSelect.addEventListener('change', () => saveModel(modelSelect.value));
+    }
+    // Contextual database toggle is cosmetic for now (no behavior)
+  }
+  initUI();
+  window.addEventListener('pageshow', initUI);
 </script>
 </body>
 </html>
