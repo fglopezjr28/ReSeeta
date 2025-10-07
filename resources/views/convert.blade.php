@@ -87,7 +87,7 @@
       user-select: none;
     }
     .switch {
-      --w: 46px;
+      --w: 44px;
       --h: 26px;
       position: relative;
       width: var(--w);
@@ -109,7 +109,7 @@
     }
     .switch .knob {
       position: absolute;
-      top: 2px; left: 2px;
+      top: 1px; left: 2px;
       width: calc(var(--h) - 4px);
       height: calc(var(--h) - 4px);
       background: #fff;
@@ -142,6 +142,26 @@
     #startConvert:disabled { opacity:.6; cursor:not-allowed; }
     .is-hidden { display:none !important; }
     .model-note { font-size:.9rem; color:#506A6D; }
+
+    /* =========================
+       ADD: custom dropdown chevron on #modelSelect
+       ========================= */
+    /* Ensure vendor appearance resets so native arrow is gone */
+    #modelSelect {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      /* Inline SVG chevron, color matches --ink-2 */
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 2l5 5 5-5' stroke='%232A6B6F' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+      background-repeat: no-repeat;
+      background-position: right .55rem center;
+      background-size: 12px 8px;
+      padding-right: 2rem; /* room for arrow */
+    }
+    /* In high-contrast or if disabled, dim arrow a bit */
+    #modelSelect:disabled {
+      background-image: none;
+    }
   </style>
 </head>
 <body>
@@ -453,7 +473,7 @@
 
   /* =========================
      Upload + recognize
-  ========================= */
+     ========================= */
   function uploadAndRecognize() {
     const file = fileInput.files?.[0];
     if (!file) return;
@@ -498,8 +518,8 @@
           const data = xhr.response || {};
           if (data.ok === false) throw new Error(data.detail || data.error || 'Model service failed');
 
-          const text = data.text || data.prediction || '';
-          const used = (data.model_used || modelSelect.value || '').toString().trim();
+          const text = xhr.response?.text || xhr.response?.prediction || '';
+          const used = (xhr.response?.model_used || modelSelect.value || '').toString().trim();
 
           // Show result and update heading to "Result using MODEL"
           resultBox.classList.remove('is-hidden');
@@ -510,7 +530,6 @@
             resultHeading.textContent = 'Result';
           }
 
-          // Optional note near controls
           if (modelUsedNote) {
             modelUsedNote.textContent = used ? `Last model: ${used.toUpperCase()}` : '';
           }
@@ -559,7 +578,7 @@
 
   /* =========================
      Events
-  ========================= */
+     ========================= */
   fileInput.addEventListener('change', (e) => {
     const file = e.target.files?.[0];
     startBtn.disabled = !file;
@@ -574,7 +593,6 @@
         if (el !== previewImage && el !== progressCard) el.classList.add('is-hidden');
       });
 
-      // history
       const id = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
       lastUploadedId = id;
       addHistoryItem({ id, name: file.name, dataUrl, status: 'uploaded' });
