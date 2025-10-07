@@ -11,8 +11,14 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <style>
     #startConvert:disabled { opacity:.6; cursor:not-allowed; }
-    /* optional helper */
     .is-hidden { display:none !important; }
+
+    /* NEW: dim and block interactions before upload */
+    .controls-disabled {
+      opacity: .55;
+      pointer-events: none;
+      filter: grayscale(10%);
+    }
   </style>
 </head>
 <body>
@@ -110,6 +116,36 @@
         </div>
       </div>
 
+      <!-- ▼▼▼ NEW: Model Controls (toggle + radios) ▼▼▼ -->
+      <div class="model-controls controls-disabled">
+        <div class="cmd-wrap" id="cmdWrap">
+          <span class="cmd-text">Contextual Medical Database</span>
+          <button type="button"
+                  id="cmdToggle"
+                  class="toggle"
+                  aria-pressed="false"
+                  aria-label="Contextual Medical Database toggle">
+            <span class="knob"></span>
+          </button>
+        </div>
+
+        <fieldset class="model-select" role="radiogroup" aria-label="Model choice" id="modelSelect">
+          <label class="radio-pill" id="crnnLabel">
+            <input type="radio" name="model_type" value="crnn" id="crnnRadio">
+            <span>CRNN</span>
+          </label>
+
+          <label class="radio-pill" id="vitLabel">
+            <input type="radio" name="model_type" value="vit_crnn" id="vitRadio">
+            <span>ViT-CRNN</span>
+          </label>
+        </fieldset>
+
+        <!-- hidden value to send with XHR -->
+        <input type="hidden" name="use_context_db" id="cmdValue" value="0">
+      </div>
+      <!-- ▲▲▲ END Model Controls ▲▲▲ -->
+
       <div class="actions">
         <button id="startConvert" type="button" disabled>Recognize Prescription</button>
       </div>
@@ -124,7 +160,6 @@
   /* =========================
      Config
   ========================= */
-  // Use your Laravel route that proxies to Python
   const API_URL = "{{ route('ocr.predict') }}";
 
   /* =========================
@@ -151,15 +186,70 @@
   const btnClearHistory = document.getElementById('btnClearHistory');
   const historyPanel = document.getElementById('historyPanel');
 
+  /* NEW: model control refs */
+  const cmdToggle = document.getElementById('cmdToggle');
+  const cmdValue  = document.getElementById('cmdValue');
+  const crnnRadio = document.getElementById('crnnRadio');
+  const crnnLabel = document.getElementById('crnnLabel');
+  const vitRadio  = document.getElementById('vitRadio');
+  const vitLabel  = document.getElementById('vitLabel');
+  const modelControlsRoot = document.querySelector('.model-controls');
+
   /* =========================
      State
   ========================= */
   const HISTORY_KEY = 'reseeta_history_v1';
   const HISTORY_LIMIT = 20;
-  let uploadTimer = null;       // (not used with XHR progress, kept for compatibility)
-  let working = false;          // prevents double-submit
-  let lastUploadedId = null;    // history link
-  let currentXHR = null;        // in-flight request (for cancel)
+  let uploadTimer = null;
+  let working = false;
+  let lastUploadedId = null;
+  let currentXHR = null;
+
+  /* =========================
+     Enable/disable controls (pre-upload)
+  ========================= */
+  function setControlsEnabled(enabled){
+    if (enabled) modelControlsRoot.classList.remove('controls-disabled');
+    else modelControlsRoot.classList.add('controls-disabled');
+  }
+  // Start disabled until a file is chosen
+  setControlsEnabled(false);
+
+  /* =========================
+     Toggle/Radio behavior
+  ========================= */
+  function syncModelUI(){
+    const on = cmdToggle.classList.contains('is-on');
+    cmdToggle.setAttribute('aria-pressed', on ? 'true' : 'false');
+    cmdValue.value = on ? '1' : '0';
+
+    if (on){
+      // CMD ON: only ViT-CRNN selectable
+      if (crnnRadio.checked) crnnRadio.checked = false; // don't auto-select ViT
+      crnnRadio.disabled = true;
+      crnnLabel.classList.add('is-disabled');
+
+      vitRadio.disabled = false;
+      vitLabel.classList.remove('is-disabled');
+    } else {
+      // CMD OFF: both available (even none selected)
+      crnnRadio.disabled = false;
+      vitRadio.disabled  = false;
+      crnnLabel.classList.remove('is-disabled');
+      vitLabel.classList.remove('is-disabled');
+    }
+  }
+
+  cmdToggle.addEventListener('click', () => {
+    // ignore clicks if controls are disabled pre-upload
+    if (modelControlsRoot.classList.contains('controls-disabled')) return;
+    cmdToggle.classList.toggle('is-on');
+    syncModelUI();
+  });
+
+  // Initialize: toggle OFF, none selected
+  cmdToggle.classList.remove('is-on');
+  syncModelUI();
 
   /* =========================
      History helpers
@@ -175,7 +265,7 @@
     const items = loadHistory();
     items.unshift({
       id, name, dataUrl,
-      status: status || 'uploaded', // 'uploaded' | 'converted'
+      status: status || 'uploaded',
       resultText: resultText || null,
       ts: Date.now()
     });
@@ -241,7 +331,6 @@
     [...uploadInner.children].forEach(el => {
       if (el !== progressCard) el.classList.add('is-hidden');
     });
-    // keep preview visible only after selection (not during upload here)
     previewImage.style.display = 'none';
     previewImage.classList.add('is-hidden');
   }
@@ -268,7 +357,6 @@
       if (el !== progressCard) el.classList.remove('is-hidden');
     });
 
-    // Keep spinner hidden until processing stage
     convertLoading.hidden = true;
 
     resultPlaceholder?.classList.remove('is-hidden');
@@ -286,7 +374,6 @@
 
   function enterUploadingUI() {
     showProgressOnly();
-    // spinner appears only during "processing", not upload
     resultPlaceholder?.classList.add('is-hidden');
     resultBox?.classList.add('is-hidden');
     document.body.classList.add('recognize-busy');
@@ -299,20 +386,29 @@
     const file = fileInput.files?.[0];
     if (!file) return;
 
+    // Guard: require a model selection
+    if (!crnnRadio.checked && !vitRadio.checked){
+      resultPlaceholder?.classList.add('is-hidden');
+      resultBox.classList.remove('is-hidden');
+      resultBox.textContent = 'Please choose a model (CRNN or ViT-CRNN) before converting.';
+      return;
+    }
+
     enterUploadingUI();
     progressStatus.textContent = 'Uploading…';
 
     const fd = new FormData();
-    // IMPORTANT: field name must be 'file' to match OcrController
     fd.append('file', file, file.name);
+
+    // include the controls in the request
+    fd.append('use_context_db', cmdValue.value); // "1" | "0"
+    fd.append('model_type', (vitRadio.checked ? 'vit_crnn' : 'crnn'));
 
     currentXHR = new XMLHttpRequest();
     currentXHR.open('POST', API_URL, true);
     currentXHR.responseType = 'json';
-    // CSRF header for Laravel
     currentXHR.setRequestHeader('X-CSRF-TOKEN', document.querySelector("meta[name='csrf-token']").getAttribute('content'));
 
-    // upload progress
     currentXHR.upload.onprogress = (e) => {
       if (!e.lengthComputable) return;
       const p = Math.max(0, Math.min(100, (e.loaded / e.total) * 100));
@@ -320,13 +416,12 @@
       progressPercent.textContent = Math.round(p) + '%';
     };
 
-    // after upload completes, switch to processing spinner and keep preview visible
     currentXHR.upload.onload = () => {
       progressBar.style.width = '100%';
       progressPercent.textContent = '100%';
       progressStatus.textContent = 'Processing…';
-      showPreviewOnly();          // preview stays visible during processing
-      convertLoading.hidden = false; // show spinner now
+      showPreviewOnly();
+      convertLoading.hidden = false;
     };
 
     currentXHR.onreadystatechange = () => {
@@ -388,19 +483,21 @@
   fileInput.addEventListener('change', (e) => {
     const file = e.target.files?.[0];
     startBtn.disabled = !file;
+
+    // Enable/disable model controls based on having a file
+    setControlsEnabled(!!file);
+
     if (!file) return;
 
     const r = new FileReader();
     r.onload = ev => {
       const dataUrl = ev.target.result;
-      // Show preview immediately; hide the upload UI
       previewImage.src = dataUrl;
       previewImage.style.display = 'block';
       [...uploadInner.children].forEach(el => {
         if (el !== previewImage && el !== progressCard) el.classList.add('is-hidden');
       });
 
-      // history
       lastUploadedId = (crypto.randomUUID && crypto.randomUUID()) || String(Date.now());
       addHistoryItem({
         id: lastUploadedId,
@@ -432,6 +529,11 @@
     fileInput.value = '';
     document.getElementById('fileName').textContent = 'filename.png';
     resetUploadingUI();
+    setControlsEnabled(false);          // keep controls disabled after clearing
+    cmdToggle.classList.remove('is-on'); // reset toggle off
+    syncModelUI();
+    crnnRadio.checked = false;          // clear selection
+    vitRadio.checked  = false;
   });
 
   btnHistory.addEventListener('click', () => {
@@ -453,7 +555,6 @@
 
   btnClearHistory?.addEventListener('click', () => clearHistory(false));
 
-  // Init on load & BFCache restore
   resetUploadingUI();
   window.addEventListener('pageshow', resetUploadingUI);
 </script>
