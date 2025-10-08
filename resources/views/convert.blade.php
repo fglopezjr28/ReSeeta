@@ -124,6 +124,11 @@
       background: var(--brand);
       border-color: var(--brand);
     }
+    .switch.is-disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    .switch.is-disabled input { pointer-events: none; }
     .toggle .label {
       font-weight: 600;
       color: var(--ink-2);
@@ -471,6 +476,23 @@
     document.body.classList.add('recognize-busy');
   }
 
+  function updateContextToggleAvailability() {
+    const isVit = (modelSelect?.value === 'vit');         // only ViT-CRNN can use lexicon
+    const wrapper = document.querySelector('.group.toggle .switch');
+
+    if (isVit) {
+      contextToggle.disabled = false;
+      wrapper?.classList.remove('is-disabled');
+      wrapper?.setAttribute('title', 'Contextual database is available for ViT-CRNN');
+    } else {
+      // moving away from ViT => force OFF and disable
+      contextToggle.checked = false;
+      contextToggle.disabled = true;
+      wrapper?.classList.add('is-disabled');
+      wrapper?.setAttribute('title', 'Contextual database is available only for ViT-CRNN');
+    }
+  }
+
   /* =========================
      Upload + recognize
      ========================= */
@@ -482,8 +504,12 @@
     progressStatus.textContent = 'Uploading…';
 
     const fd = new FormData();
+    const modelVal = modelSelect ? modelSelect.value : 'vit';
+    const useContext = (modelVal === 'vit' && contextToggle.checked) ? '1' : '0';
+
     fd.append('file', file, file.name);
-    fd.append('model', modelSelect ? modelSelect.value : 'vit');
+    fd.append('model', modelVal);
+    fd.append('use_context', useContext);
 
     const xhr = new XMLHttpRequest();
     currentXHR = xhr;
@@ -518,25 +544,73 @@
           const data = xhr.response || {};
           if (data.ok === false) throw new Error(data.detail || data.error || 'Model service failed');
 
-          const text = xhr.response?.text || xhr.response?.prediction || '';
-          const used = (xhr.response?.model_used || modelSelect.value || '').toString().trim();
+          // From API
+          const used       = (data.model_used || modelSelect.value || '').toString().trim();
+          const isVit      = used.toLowerCase() === 'vit';
+          const ctxFromAPI = (typeof data.context_enabled !== 'undefined') ? !!data.context_enabled : null;
 
-          // Show result and update heading to "Result using MODEL"
+          // Fallback to the UI toggle if API didn't say
+          const ctxFallback = (isVit && contextToggle.checked);
+          const ctxOn = (ctxFromAPI !== null) ? ctxFromAPI : ctxFallback;
+
+          // Prefer backend flags:
+          const applied =
+            (typeof data.lexicon_applied !== 'undefined')
+              ? !!data.lexicon_applied
+              : (typeof data.lexicon_applied_strict !== 'undefined')
+                ? !!data.lexicon_applied_strict
+                : (!!data.lexicon_changed && ctxOn); // last-ditch fallback
+
+          const changed  = !!data.lexicon_changed;
+          const text     = (data.text ?? data.prediction ?? data.text_raw ?? '');
+
+          // Clear old content
           resultBox.classList.remove('is-hidden');
-          resultBox.textContent = text || '(empty)';
-          if (used) {
-            resultHeading.textContent = `Result using ${used.toUpperCase()}`;
-          } else {
-            resultHeading.textContent = 'Result';
+          resultBox.textContent = '';
+          const mainText = document.createElement('div');
+          mainText.textContent = text || '(empty)';
+          resultBox.appendChild(mainText);
+
+          // Contextual DB line (what users care about)
+          const ctxLine = document.createElement('div');
+          ctxLine.style.marginTop = '6px';
+          ctxLine.style.color = '#506A6D';
+          ctxLine.style.fontSize = '.9rem';
+          ctxLine.textContent = `Contextual DB applied: ${applied}`;
+          if (changed && !applied) ctxLine.textContent += ' (changed first token but not a full DB match)';
+          resultBox.appendChild(ctxLine);
+
+          // Optional debug crumbs (helpful while tuning)
+          if (data.lexicon_info) {
+            const { reason, first_raw, first_fixed } = data.lexicon_info;
+            const dbg = document.createElement('div');
+            dbg.style.marginTop = '2px';
+            dbg.style.color = '#7a8b8c';
+            dbg.style.fontSize = '.8rem';
+            let extra = [];
+            if (typeof reason !== 'undefined') extra.push(`Reason: ${reason}`);
+            if (first_raw)   extra.push(`raw="${first_raw}"`);
+            if (first_fixed) extra.push(`fixed="${first_fixed}"`);
+            if (extra.length) {
+              dbg.textContent = extra.join(' • ');
+              resultBox.appendChild(dbg);
+            }
           }
 
-          if (modelUsedNote) {
-            modelUsedNote.textContent = used ? `Last model: ${used.toUpperCase()}` : '';
-          }
+          // Heading + note
+resultHeading.textContent = used ? `Result using ${used.toUpperCase()}` : 'Result';
+
+// NOTE: For the footer note we show the UI state ONLY (your requirement)
+const uiToggleOn = (isVit && contextToggle.checked);
+if (modelUsedNote) {
+  const onoff = isVit ? (uiToggleOn ? 'Context ON' : 'Context OFF') : 'Context N/A';
+  modelUsedNote.textContent = used ? `Last model: ${used.toUpperCase()} • ${onoff}` : '';
+}
 
           if (lastUploadedId) {
             updateHistoryItem(lastUploadedId, { status: 'converted', resultText: text, ts: Date.now() });
           }
+
         } else {
           const err = xhr.response?.detail || xhr.response?.error || xhr.statusText || 'Upload failed';
           throw new Error(err);
@@ -645,9 +719,12 @@
     resetUploadingUI();
     if (modelSelect) {
       modelSelect.value = getSavedModel();
-      modelSelect.addEventListener('change', () => saveModel(modelSelect.value));
+      updateContextToggleAvailability();
+      modelSelect.addEventListener('change', () => {
+        saveModel(modelSelect.value);
+        updateContextToggleAvailability();           
+      });
     }
-    // Contextual database toggle is cosmetic for now (no behavior)
   }
   initUI();
   window.addEventListener('pageshow', initUI);
