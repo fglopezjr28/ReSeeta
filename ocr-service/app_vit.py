@@ -309,6 +309,10 @@ async def predict(
     model_choice: str = Form("vit", alias="model"),   # <-- accept field named "model"
     use_context: str = Form("0"),
 ):
+    
+    # DEBUG: log what we received
+    print(f"[predict] model={model_choice!r} use_context_raw={use_context!r}")
+
     # 1) Read & decode
     data = await file.read()
     arr = np.frombuffer(data, dtype=np.uint8)
@@ -360,6 +364,7 @@ async def predict(
         "text": text_fixed,
 
         "context_enabled": bool(context_enabled),
+        "use_context_raw": use_context,
         "lexicon_changed": bool(changed),
         "lexicon_applied": bool(lexicon_applied),
         "lexicon_applied_strict": bool(lexicon_applied_strict),
