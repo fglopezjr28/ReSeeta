@@ -11,26 +11,36 @@ class OcrController extends Controller
     public function predict(Request $request)
     {
         $request->validate([
-            'file'  => ['required','file','image','mimes:png,jpg,jpeg','max:10240'], // 10 MB
-            'model' => ['nullable', Rule::in(['vit','crnn'])],                      // defaults to 'vit' below
+            'file'        => ['required','file','image','mimes:png,jpg,jpeg','max:10240'],
+            'model'       => ['nullable', Rule::in(['vit','crnn'])],
+            'use_context' => ['nullable','in:0,1'], // checkbox posts "1" or "0"
         ]);
 
-        $file  = $request->file('file');
-        $model = $request->input('model', 'vit'); // default ViT for backward-compat
+        $file   = $request->file('file');
+        $model  = $request->input('model', 'vit');
 
-        // Decide which Python service to call
+        // Context is only meaningful for ViT
+        $useContext = $model === 'vit'
+            ? ($request->input('use_context', '0') === '1' ? '1' : '0')
+            : '0';
+
+        // Pick the Python service
         $target = $model === 'crnn'
             ? rtrim(env('PYTHON_CRNN_URL', 'http://127.0.0.1:8002'), '/').'/predict'
             : rtrim(env('PYTHON_VIT_URL',  'http://127.0.0.1:8001'), '/').'/predict';
 
-        // Send multipart with the image file
+        // Send multipart: file + fields
         $response = Http::timeout(60)
+            ->asMultipart() // IMPORTANT when mixing file + fields
             ->attach(
                 'file',
                 file_get_contents($file->getRealPath()),
                 $file->getClientOriginalName()
             )
-            ->post($target);
+            ->post($target, [
+                'model'        => $model,      // FastAPI expects 'model'
+                'use_context'  => $useContext, // FastAPI expects 'use_context'
+            ]);
 
         if (!$response->ok()) {
             return response()->json([
