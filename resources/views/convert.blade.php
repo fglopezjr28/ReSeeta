@@ -38,10 +38,27 @@
       color: var(--ink-2);
       margin: 2px 0 8px;
     }
+
+    /* Base result box style (original) */
     .result-box {
       font-size: 15px;
       line-height: 1.55;
-      box-shadow: 0 1px 0 rgba(0,0,0,.02) inset;
+      box-shadow: none;              /* remove any inner shadow */
+    }
+
+    /* --- Card visual for result text ONLY (now flat, no shadow) --- */
+    .result-box{
+      background: var(--shell);
+      border-radius: 12px;
+      padding: 14px 16px;
+      box-shadow: none;              /* no drop shadow */
+      border: 1px solid #e5ecea;     /* subtle border to separate from bg */
+      color: var(--ink);
+      font-weight: 600;
+      font-size: 15px;
+      line-height: 1.55;
+      word-break: break-word;
+      min-height: 72px;              /* gentle height so the card feels like a pane */
     }
 
     /* Actions row refinement */
@@ -143,30 +160,84 @@
       transform: translateY(-1px);
     }
 
-    /* Helpers from your existing styles */
+    /* Helpers */
     #startConvert:disabled { opacity:.6; cursor:not-allowed; }
     .is-hidden { display:none !important; }
     .model-note { font-size:.9rem; color:#506A6D; }
 
     /* =========================
-       ADD: custom dropdown chevron on #modelSelect
+       Custom dropdown chevron on #modelSelect
        ========================= */
-    /* Ensure vendor appearance resets so native arrow is gone */
     #modelSelect {
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      /* Inline SVG chevron, color matches --ink-2 */
       background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 2l5 5 5-5' stroke='%232A6B6F' stroke-width='2' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>");
       background-repeat: no-repeat;
       background-position: right .55rem center;
       background-size: 12px 8px;
       padding-right: 2rem; /* room for arrow */
     }
-    /* In high-contrast or if disabled, dim arrow a bit */
     #modelSelect:disabled {
       background-image: none;
     }
+
+    /* =========================
+       Debug/indicator BELOW card:
+       pill on first line, details on second line
+       ========================= */
+    .result-debug{
+      margin-top: 8px;
+      color: var(--ink-2);
+      display: flex;
+      flex-direction: column;  /* stack lines */
+      gap: 6px;
+      font-size: .875rem;
+      max-width: 100%;
+    }
+    .result-debug .badge{
+      display: inline-block;
+      border: 1px dashed var(--ink-2);
+      border-radius: 10px;
+      padding: 3px 10px;
+      font-weight: 700;
+      line-height: 1.6;
+      width: fit-content;      /* pill hugs its text */
+    }
+    .result-debug .details{
+      display: block;          /* sits below the pill */
+      font-size: .875rem;
+      line-height: 1.5;
+      word-break: break-word;
+    }
+    .result-debug code{
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      font-size: .85em;
+    }
+    .result-debug .dot{ opacity:.6 }
+
+    /* Force toggle ON color to #3DB39E */
+    .switch input:checked ~ .bg {
+      background: #3DB39E !important;
+      border-color: #3DB39E !important;
+    }
+
+    /* ---------- NEW: align Result pane like Preview pane ---------- */
+    .panes .pane.result {
+      justify-content: flex-start !important;  /* top-align content */
+      align-items: stretch;                    /* stretch inner width */
+      padding-top: 14px;                       /* adjust if you want tighter space */
+      min-height: 290px;                       /* match upload pane baseline height */
+    }
+    /* Make Result pane use the same inner padding as the Upload pane */
+.pane.result { padding: clamp(16px, 2vw, 24px) 16px 16px !important; }  /* top | sides | bottom */
+
+/* Keep both panes top-aligned (in case browser stretched them) */
+.panes { align-items: start !important; }
+
+/* Trim heading spacing so the gray card starts at the same height */
+.pane.result .placeholder { margin: 0 0 8px !important; }
+
   </style>
 </head>
 <body>
@@ -196,7 +267,7 @@
           <input id="fileInput" type="file" accept="image/*" hidden>
           <div class="upload-inner">
             <!-- Default state -->
-            <div class="upload-icon" aria-hidden="true">Upload Image</div>
+            <!-- <div class="upload-icon" aria-hidden="true">Upload Image</div> -->
             <div class="upload-title">Upload Photo</div>
             <p class="upload-note">
               Maximum file size: 10&nbsp;MB. Only clear, scanned medical prescriptions are accepted.
@@ -242,7 +313,13 @@
           <!-- This text will switch to “Result using MODEL” on success -->
           <span class="placeholder" id="resultHeading">Result Here</span>
 
+          <!-- CARD: holds ONLY the converted text (flat, no shadow) -->
           <div class="result-box" id="resultBox"></div>
+
+          <!-- DEBUG/INDICATOR: pill on first line, details line below -->
+          <div class="result-debug" id="resultDebug" aria-live="polite">
+            <!-- JS will fill badge and .details -->
+          </div>
 
           <div class="loading" id="convertLoading" hidden aria-live="polite" aria-busy="true">
             <div class="spinner" aria-hidden="true"></div>
@@ -319,6 +396,7 @@
   const convertLoading = document.getElementById('convertLoading');
   const resultHeading = document.getElementById('resultHeading');
   const resultBox = document.getElementById('resultBox');
+  const resultDebug = document.getElementById('resultDebug'); // NEW
 
   const btnDeleteUpload = document.getElementById('btnDeleteUpload');
   const btnHistory = document.getElementById('btnHistory');
@@ -402,7 +480,6 @@
         previewImage.src = item.dataUrl;
         previewImage.style.display = 'block';
         resultBox.textContent = item.resultText || '';
-        // Keep heading reflecting last known model if any
       });
     });
   }
@@ -456,10 +533,11 @@
 
     convertLoading.hidden = true;
 
-    // Reset heading + result box
+    // Reset heading + result box + debug
     resultHeading.textContent = 'Result Here';
     resultHeading.classList.remove('is-hidden');
     resultBox.textContent = '';
+    if (resultDebug) resultDebug.innerHTML = '';
 
     if (currentXHR) { try { currentXHR.abort(); } catch {} currentXHR = null; }
 
@@ -471,7 +549,7 @@
 
   function enterUploadingUI() {
     showProgressOnly();
-    // We keep the heading visible; result box is hidden during processing
+    // Keep heading visible; result box is hidden during processing
     resultBox.classList.add('is-hidden');
     document.body.classList.add('recognize-busy');
   }
@@ -564,48 +642,42 @@
           const changed  = !!data.lexicon_changed;
           const text     = (data.text ?? data.prediction ?? data.text_raw ?? '');
 
-          // Clear old content
+          // --- CARD: converted text only (flat)
           resultBox.classList.remove('is-hidden');
-          resultBox.textContent = '';
-          const mainText = document.createElement('div');
-          mainText.textContent = text || '(empty)';
-          resultBox.appendChild(mainText);
+          resultBox.textContent = text || '(empty)';
 
-          // Contextual DB line (what users care about)
-          const ctxLine = document.createElement('div');
-          ctxLine.style.marginTop = '6px';
-          ctxLine.style.color = '#506A6D';
-          ctxLine.style.fontSize = '.9rem';
-          ctxLine.textContent = `Contextual DB applied: ${applied}`;
-          if (changed && !applied) ctxLine.textContent += ' (changed first token but not a full DB match)';
-          resultBox.appendChild(ctxLine);
-
-          // Optional debug crumbs (helpful while tuning)
+          // --- DEBUG/INDICATOR: pill first line, details second line
+          let pillHTML = `<span class="badge">Contextual DB applied: <strong>${applied}</strong></span>`;
+          let detailsParts = [];
           if (data.lexicon_info) {
             const { reason, first_raw, first_fixed } = data.lexicon_info;
-            const dbg = document.createElement('div');
-            dbg.style.marginTop = '2px';
-            dbg.style.color = '#7a8b8c';
-            dbg.style.fontSize = '.8rem';
-            let extra = [];
-            if (typeof reason !== 'undefined') extra.push(`Reason: ${reason}`);
-            if (first_raw)   extra.push(`raw="${first_raw}"`);
-            if (first_fixed) extra.push(`fixed="${first_fixed}"`);
-            if (extra.length) {
-              dbg.textContent = extra.join(' • ');
-              resultBox.appendChild(dbg);
-            }
+            if (reason)      detailsParts.push(`Reason: ${reason}`);
+            if (first_raw)   detailsParts.push(`raw="<code>${first_raw}</code>"`);
+            if (first_fixed) detailsParts.push(`fixed="<code>${first_fixed}</code>"`);
+          } else if (changed) {
+            detailsParts.push('First token adjusted');
           }
+          const detailsHTML = detailsParts.length
+            ? `<div class="details">${detailsParts.join(' <span class="dot">•</span> ')}</div>`
+            : '<div class="details"></div>';
 
-          // Heading + note
-resultHeading.textContent = used ? `Result using ${used.toUpperCase()}` : 'Result';
+          resultDebug.innerHTML = pillHTML + detailsHTML;
 
-// NOTE: For the footer note we show the UI state ONLY (your requirement)
-const uiToggleOn = (isVit && contextToggle.checked);
-if (modelUsedNote) {
-  const onoff = isVit ? (uiToggleOn ? 'Context ON' : 'Context OFF') : 'Context N/A';
-  modelUsedNote.textContent = used ? `Last model: ${used.toUpperCase()} • ${onoff}` : '';
-}
+          // Heading (model-specific label; only the text changes)
+(function () {
+  const m = (used || '').toLowerCase();
+  let label = 'Result';
+  if (m === 'vit')      label = 'Converted Digital Text using ViT-CRNN';
+  else if (m === 'crnn') label = 'Converted Digital Text using CRNN';
+  resultHeading.textContent = label;
+})();
+
+          // UI note
+          const uiToggleOn = (isVit && contextToggle.checked);
+          if (modelUsedNote) {
+            const onoff = isVit ? (uiToggleOn ? 'Context ON' : 'Context OFF') : 'Context N/A';
+            modelUsedNote.textContent = used ? `Last model: ${used.toUpperCase()} • ${onoff}` : '';
+          }
 
           if (lastUploadedId) {
             updateHistoryItem(lastUploadedId, { status: 'converted', resultText: text, ts: Date.now() });
@@ -618,6 +690,7 @@ if (modelUsedNote) {
       } catch (e) {
         resultBox.classList.remove('is-hidden');
         resultBox.textContent = (e?.message || 'Unexpected error');
+        if (resultDebug) resultDebug.innerHTML = '';
         resultHeading.textContent = 'Result';
         if (modelUsedNote) modelUsedNote.textContent = '';
         if (lastUploadedId) {
@@ -633,6 +706,7 @@ if (modelUsedNote) {
       working = false;
       resultBox.classList.remove('is-hidden');
       resultBox.textContent = 'Network error';
+      if (resultDebug) resultDebug.innerHTML = '';
       resultHeading.textContent = 'Result';
       if (modelUsedNote) modelUsedNote.textContent = '';
       currentXHR = null;
@@ -642,6 +716,7 @@ if (modelUsedNote) {
       convertLoading.hidden = true;
       working = false;
       resultBox.textContent = '';
+      if (resultDebug) resultDebug.innerHTML = '';
       resultHeading.textContent = 'Result Here';
       if (modelUsedNote) modelUsedNote.textContent = '';
       currentXHR = null;
@@ -722,7 +797,7 @@ if (modelUsedNote) {
       updateContextToggleAvailability();
       modelSelect.addEventListener('change', () => {
         saveModel(modelSelect.value);
-        updateContextToggleAvailability();           
+        updateContextToggleAvailability();
       });
     }
   }

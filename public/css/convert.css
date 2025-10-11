@@ -392,3 +392,42 @@ footer{
   margin-right:6px;
 }
 .history-clear:hover{ background:#f5f7f6; }
+
+/* === Toggle ON color override (Contextual database) — robust === */
+.group.toggle > label.switch input:checked ~ span.bg,
+.group.toggle > label.switch:has(input:checked),
+.switch input:checked ~ .bg,
+.switch:has(input:checked) {
+  background: #3DB39E !important;
+  border-color: #3DB39E !important;
+}
+
+/* === Symmetric toggle with border-aware gaps (OFF/ON gaps match) === */
+.group.toggle .switch {
+  /* Size knobs by just tweaking these: */
+  --w: 44px;   /* track width  */
+  --h: 26px;   /* track height */
+  --g: 3px;    /* inner gap on BOTH sides */
+  --b: 1px;    /* track border width (matches your .switch border) */
+
+  position: relative;
+  width: var(--w);
+  height: var(--h);
+  border-radius: var(--h);
+}
+
+/* Center the knob vertically and keep equal gaps inside the border box */
+.group.toggle .switch .knob {
+  position: absolute;
+  top: 50%;
+  left: calc(var(--g) + var(--b));                 /* accounts for left border */
+  transform: translate(0, -50%);                   /* vertical centering */
+  width: calc(var(--h) - 2 * var(--g) - 2 * var(--b));
+  height: calc(var(--h) - 2 * var(--g) - 2 * var(--b));
+  border-radius: 50%;
+}
+
+/* Slide distance also stays inside the border box */
+.group.toggle .switch input:checked + .knob {
+  transform: translate(calc(var(--w) - var(--h)), -50%);
+}
