@@ -27,6 +27,8 @@
   <nav class="top-nav">
     <a href="{{ url('/') }}" class="{{ Request::is('/') ? 'active' : '' }}">Home</a>
     <a href="{{ url('/about') }}" class="{{ Request::is('about') ? 'active' : '' }}">About</a>
+    <a href="{{ url('/vit-crnn-results') }}" class="{{ Request::is('vit-crnn-results') ? 'active' : '' }}">ViT-CRNN Results</a>
+    <a href="{{ url('/crnn-results') }}" class="{{ Request::is('crnn-results') ? 'active' : '' }}">CRNN Results</a>
   </nav>
 
   <main class="hero">

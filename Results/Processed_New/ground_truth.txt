@@ -1,0 +1,194 @@
+Orio_Azathioprine_3rd-Trial.png: Azathioprine: 3-5 mg Per os OD
+Orio_Risperidone_1st-Trial.png: Risperidone: 2 mg orally i/d
+Orio_Prednisolone_2nd-Trial.png: Prednisolone: 5-60 mg per day qds
+Orio_Rituximab_2nd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Orio_Tramadol_1st-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Orio_Quinine_3rd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Orio_Dobutamine_2nd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Orio_Hydroxyzine_2nd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Orio_Ceftriaxone_1st-Trial.png: Ceftriaxone: 2 g IV q24h
+Orio_Metronidazole_3rd-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Orio_Chlorpromazine_3rd-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Orio_Lorazepam_1st-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+DeGuzman_Quinine_3rd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+DeGuzman_Chlorpromazine_2nd-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+DeGuzman_Metronidazole_1st-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+DeGuzman_Azathioprine_2nd-Trial.png: Azathioprine: 3-5 mg Per os OD
+DeGuzman_Lorazepam_1st-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+DeGuzman_Risperidone_2nd-Trial.png: Risperidone: 2 mg orally i/d
+DeGuzman_Prednisolone_1st-Trial.png: Prednisolone: 5-60 mg per day qds
+DeGuzman_Ceftriaxone_2nd-Trial.png: Ceftriaxone: 2 g IV q24h
+DeGuzman_Dobutamine_2nd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+DeGuzman_Tramadol_3rd-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+DeGuzman_Rituximab_3rd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+DeGuzman_Hydroxyzine_1st-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Matibag_Azathioprine_2nd-Trial.png: Azathioprine: 3-5 mg Per os OD
+Matibag_Risperidone_1st-Trial.png: Risperidone: 2 mg orally i/d
+Matibag_Rituximab_3rd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Matibag_Metronidazole_3rd-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Matibag_Tramadol_3rd-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Matibag_Lorazepam_2nd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Matibag_Prednisolone_3rd-Trial.png: Prednisolone: 5-60 mg per day qds
+Matibag_Ceftriaxone_1st-Trial.png: Ceftriaxone: 2 g IV q24h
+Matibag_Hydroxyzine_2nd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Matibag_Chlorpromazine_1st-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Matibag_Dobutamine_3rd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Matibag_Quinine_1st-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Alcantara_Azathioprine_1st-Trial.png: Azathioprine: 3-5 mg Per os OD
+Alcantara_Ceftriaxone_1st-Trial.png: Ceftriaxone: 2 g IV q24h
+Alcantara_Dobutamine_2nd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Alcantara_Chlorpromazine_3rd-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Baon_Rituximab_1st-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Baon_Azathioprine_2nd-Trial.png: Azathioprine: 3-5 mg Per os OD
+Baon_Metronidazole_1st-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Baon_Ceftriaxone_2nd-Trial.png: Ceftriaxone: 2 g IV q24h
+Baon_Quinine_3rd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Baon_Hydroxyzine_3rd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Baon_Risperidone_3rd-Trial.png: Risperidone: 2 mg orally i/d
+Baon_Prednisolone_1st-Trial.png: Prednisolone: 5-60 mg per day qds
+Baon_Tramadol_1st-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Baon_Dobutamine_2nd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Baon_Lorazepam_3rd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Baon_Chlorpromazine_2nd-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Lerave_Risperidone_2nd-Trial.png: Risperidone: 2 mg orally i/d
+Lerave_Ceftriaxone_3rd-Trial.png: Ceftriaxone: 2 g IV q24h
+Lerave_Chlorpromazine_1st-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Lerave_Tramadol_3nd-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Lerave_Metronidazole_2nd-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Lerave_Dobutamine_1st-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Lerave_Azathioprine_1st-Trial.png: Azathioprine: 3-5 mg Per os OD
+Lerave_Hydroxyzine_3rd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Lerave_Lorazepam_3rd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Lerave_Rituximab_1st-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Lerave_Quinine_2nd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Lerave_Prednisolone_2nd-Trial.png: Prednisolone: 5-60 mg per day qds
+Paragas_Dobutamine_1st-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Paragas_Chlorpromazine_3rd-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Paragas_Prednisolone_1st-Trial.png: Prednisolone: 5-60 mg per day qds
+Paragas_Quinine_2nd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Paragas_Rituximab_3rd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Paragas_Lorazepam_3rd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Paragas_Hydroxyzine_1st-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Paragas_Risperidone_2nd-Trial.png: Risperidone: 2 mg orally i/d
+Paragas_Tramadol_1st-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Paragas_Ceftriaxone_2nd-Trial.png: Ceftriaxone: 2 g IV q24h
+Paragas_Azathioprine_3rd-Trial.png: Azathioprine: 3-5 mg Per os OD
+Paragas_Metronidazole_1st-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Ong_Azathioprine_3rd-Trial.png: Azathioprine: 3-5 mg Per os OD
+Ong_Risperidone_2nd-Trial.png: Risperidone: 2 mg orally i/d
+Ong_Rituximab_2nd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Ong_Quinine_1st-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Ong_Ceftriaxone_1st-Trial.png: Ceftriaxone: 2 g IV q24h
+Ong_Prednisolone_2nd-Trial.png: Prednisolone: 5-60 mg per day qds
+Ong_Dobutamine_3rd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Ong_Tramadol_1st-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Ong_Hydroxyzine_1st-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Ong_Lorazepam_2nd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Ong_Metronidazole_2nd-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Ong_Chlorpromazine_1st-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Sjoberg_Ceftriaxone_1st-Trial.png: Ceftriaxone: 2 g IV q24h
+Sjoberg_Metronidazole_1st-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Sjoberg_Quinine_3rd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Sjoberg_Tramadol_3rd-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Sjoberg_Prednisolone_1st-Trial.png: Prednisolone: 5-60 mg per day qds
+Sjoberg_Rituximab_2nd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Sjoberg_Lorazepam_1st-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Sjoberg_Risperidone_2nd-Trial.png: Risperidone: 2 mg orally i/d
+Sjoberg_Chlorpromazine_2nd-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Sjoberg_Dobutamine_2nd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Sjoberg_Azathioprine_3rd-Trial.png: Azathioprine: 3-5 mg Per os OD
+Sjoberg_Hydroxyzine_3rd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Mossesgeld_Quinine_2nd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Mossesgeld_Lorazepam_3rd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Mossesgeld_Dobutamine_2nd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Mossesgeld_Metronidazole_3rd-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Mossesgeld_Hydroxyzine_3rd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Mossesgeld_Tramadol_3rd-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Mossesgeld_Prednisolone_3rd-Trial.png: Prednisolone: 5-60 mg per day qds
+Mossesgeld_Chlorpromazine_2nd-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Mossesgeld_Risperidone_2nd-Trial.png: Risperidone: 2 mg orally i/d
+Mossesgeld_Rituximab_1st-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Abanico_Azathioprine_1st-Trial.png: Azathioprine: 3-5 mg Per os OD
+Abanico_Chlorpromazine_1st-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Abanico_Ceftriaxone_2nd-Trial.png: Ceftriaxone: 2 g IV q24h
+Abanico_Azathioprine_3rd-Trial.png: Azathioprine: 3-5 mg Per os OD
+Abanico_Ceftriaxone_1st-Trial.png: Ceftriaxone: 2 g IV q24h
+Abanico_Tramadol_1st-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Abanico_Hydroxyzine_3rd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Abanico_Rituximab_2nd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Abanico_Dobutamine_3rd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Abanico_Metronidazole_1st-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Abanico_Prednisolone_1st-Trial.png: Prednisolone: 5-60 mg per day qds
+Abanico_Quinine_2nd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Abanico_Risperidone_2nd-Trial.png: Risperidone: 2 mg orally i/d
+Abanico_Tramadol_3rd-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Abanico_Prednisolone_3rd-Trial.png: Prednisolone: 5-60 mg per day qds
+Abanico_Rituximab_3rd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Abanico_Metronidazole_3rd-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Abanico_Lorazepam_3rd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Abanico_Dobutamine_1st-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Abanico_Lorazepam_2nd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Abanico_Chlorpromazine_3rd-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Abanico_Quinine_3rd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Abanico_Risperidone_3rd-Trial.png: Risperidone: 2 mg orally i/d
+Abanico_Hydroxyzine_2nd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Mercado_Chlorpromazine_1st-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Mercado_Tramadol_2nd-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Mercado_Hydroxyzine_3rd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Mercado_Prednisolone_3rd-Trial.png: Prednisolone: 5-60 mg per day qds
+Mercado_Lorazepam_3rd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Mercado_Ceftriaxone_1st-Trial.png: Ceftriaxone: 2 g IV q24h
+Mercado_Risperidone_2nd-Trial.png: Risperidone: 2 mg orally i/d
+Mercado_Rituximab_2nd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Mercado_Azathioprine_1st-Trial.png: Azathioprine: 3-5 mg Per os OD
+Mercado_Quinine_2nd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Mercado_Dobutamine_1st-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Mercado_Metronidazole_3rd-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Oliman_Ceftriaxone_3rd-Trial.png: Ceftriaxone: 2 g IV q24h
+Oliman_Rituximab_3rd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Oliman_Azathioprine_3rd-Trial.png: Azathioprine: 3-5 mg Per os OD
+Oliman_Metronidazole_1st-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Oliman_Hydroxyzine_2nd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Oliman_Tramadol_1st-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Oliman_Risperidone_3rd-Trial.png: Risperidone: 2 mg orally i/d
+Oliman_Chlorpromazine_1st-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Oliman_Prednisolone_2nd-Trial.png: Prednisolone: 5-60 mg per day qds
+Oliman_Lorazepam_2nd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Oliman_Dobutamine_1st-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Oliman_Quinine_2nd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Ordinanza_Ceftriaxone_2nd-Trial.png: Ceftriaxone: 2 g IV q24h
+Ordinanza_Chlorpromazine_1st-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Ordinanza_Dobutamine_3rd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Ordinanza_Azathioprine_1st-Trial.png: Azathioprine: 3-5 mg Per os OD
+Ordinanza_Risperidone_3rd-Trial.png: Risperidone: 2 mg orally i/d
+Ordinanza_Rituximab_2nd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Ordinanza_Metronidazole_1st-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Ordinanza_Tramadol_1st-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Ordinanza_Quinine_1st-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Ordinanza_Hydroxyzine_3rd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Ordinanza_Lorazepam_2nd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Ordinanza_Prednisolone_3rd-Trial.png: Prednisolone: 5-60 mg per day qds
+Decasa_Metronidazole_3rd-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Decasa_Azathioprine_1st-Trial.png: Azathioprine: 3-5 mg Per os OD
+Decasa_Chlorpromazine_1st-Trial.png: Chlorpromazine: 10-25 mg Per os three times a day
+Decasa_Rituximab_2nd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Decasa_Risperidone_2nd-Trial.png: Risperidone: 2 mg orally i/d
+Decasa_Dobutamine_1st-Trial.png: Dobutamine: 2.5-15 mcg/kg/min
+Decasa_Prednisolone_3rd-Trial.png: Prednisolone: 5-60 mg per day qds
+Decasa_Tramadol_2nd-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Decasa_Ceftriaxone_1st-Trial.png: Ceftriaxone: 2 g IV q24h
+Decasa_Hydroxyzine_3rd-Trial.png: Hydroxyzine: 50-100 mg by IJ qds
+Decasa_Quinine_2nd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Decasa_Lorazepam_3rd-Trial.png: Lorazepam: 1 mg Per os 2 times a day
+Canor_Rituximab_2nd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Canor_Tramadol_1st-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Canor_Azathioprine_2nd-Trial.png: Azathioprine: 3-5 mg Per os OD
+Canor_Metronidazole_3rd-Trial.png: Metronidazole: 7.5 mg/kg Per os q6hr
+Canor_Tramadol_3rd-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Canor_Quinine_2nd-Trial.png: Quinine: 648 mg Per os every 8 hours for 7 days
+Canor_Rituximab_3rd-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Canor_Prednisolone_3rd-Trial.png: Prednisolone: 5-60 mg per day qds
+Canor_Risperidone_2nd-Trial.png: Risperidone: 2 mg orally i/d
+Canor_Tramadol_2nd-Trial.png: Tramadol: 50-100 mg as needed every 4 to 6 hours
+Canor_Rituximab_1st-Trial.png: Rituximab: 375 mg/m2 IV once weekly
+Canor_Dobutamine_3rd-Trial.png: Dobutamine: 2.5-15 mcg/kg/min

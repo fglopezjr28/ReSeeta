@@ -1,0 +1,483 @@
+No.,image_name,ground_truth,predicted_label
+1,test/dt[0],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+2,test/dt[1],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+3,test/dt[2],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+4,test/dt[3],Azathioprine: 3-5 mg Per os OD,Hydroxyzine: 50-100 mg by IJ qds
+5,test/dt[4],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+6,test/dt[5],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+7,test/dt[6],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+8,test/dt[7],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+9,test/dt[8],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+10,test/dt[9],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+11,test/dt[10],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+12,test/dt[11],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+13,test/dt[12],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+14,test/dt[13],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+15,test/dt[14],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+16,test/dt[15],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+17,test/dt[16],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+18,test/dt[17],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+19,test/dt[18],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+20,test/dt[19],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+21,test/dt[20],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+22,test/dt[21],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+23,test/dt[22],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+24,test/dt[23],Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+25,test/dt[24],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+26,test/dt[25],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+27,test/dt[26],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+28,test/dt[27],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+29,test/dt[28],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+30,test/dt[29],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+31,test/dt[30],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+32,test/dt[31],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+33,test/dt[32],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+34,test/dt[33],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+35,test/dt[34],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+36,test/dt[35],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+37,test/dt[36],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+38,test/dt[37],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+39,test/dt[38],Ceftriaxone: 2 g IV q24h,Azathioprine: 3- mg IV 24h
+40,test/dt[39],Ceftriaxone: 2 g IV q24h,Risperidone: 2 mg oraly i2/d
+41,test/dt[40],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+42,test/dt[41],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+43,test/dt[42],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+44,test/dt[43],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+45,test/dt[44],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+46,test/dt[45],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+47,test/dt[46],Ceftriaxone: 2 g IV q24h,Risperidone: 2 mg orally i/d
+48,test/dt[47],Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+49,test/dt[48],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+50,test/dt[49],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+51,test/dt[50],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+52,test/dt[51],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+53,test/dt[52],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+54,test/dt[53],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+55,test/dt[54],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+56,test/dt[55],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+57,test/dt[56],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+58,test/dt[57],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+59,test/dt[58],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+60,test/dt[59],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os 2 times a day
+61,test/dt[60],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+62,test/dt[61],Chlorpromazine: 10-25 mg Per os three times a day,Colozeproam: 1-2 mg Per os t2he times a day
+63,test/dt[62],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+64,test/dt[63],Chlorpromazine: 10-25 mg Per os three times a day,Azathiopraine: 3-5 mg er osJ OdD
+65,test/dt[64],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+66,test/dt[65],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os thre times a day
+67,test/dt[66],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+68,test/dt[67],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+69,test/dt[68],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+70,test/dt[69],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+71,test/dt[70],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+72,test/dt[71],Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+73,test/dt[72],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+74,test/dt[73],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+75,test/dt[74],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+76,test/dt[75],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+77,test/dt[76],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+78,test/dt[77],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+79,test/dt[78],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+80,test/dt[79],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+81,test/dt[80],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+82,test/dt[81],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+83,test/dt[82],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+84,test/dt[83],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+85,test/dt[84],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+86,test/dt[85],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+87,test/dt[86],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+88,test/dt[87],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+89,test/dt[88],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+90,test/dt[89],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+91,test/dt[90],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+92,test/dt[91],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+93,test/dt[92],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+94,test/dt[93],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+95,test/dt[94],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+96,test/dt[95],Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+97,test/dt[96],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+98,test/dt[97],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+99,test/dt[98],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+100,test/dt[99],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+101,test/dt[100],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+102,test/dt[101],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+103,test/dt[102],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+104,test/dt[103],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+105,test/dt[104],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+106,test/dt[105],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+107,test/dt[106],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+108,test/dt[107],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+109,test/dt[108],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+110,test/dt[109],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+111,test/dt[110],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+112,test/dt[111],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+113,test/dt[112],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+114,test/dt[113],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+115,test/dt[114],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+116,test/dt[115],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+117,test/dt[116],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+118,test/dt[117],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+119,test/dt[118],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+120,test/dt[119],Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+121,test/dt[120],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+122,test/dt[121],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+123,test/dt[122],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+124,test/dt[123],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+125,test/dt[124],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+126,test/dt[125],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+127,test/dt[126],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+128,test/dt[127],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+129,test/dt[128],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+130,test/dt[129],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+131,test/dt[130],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+132,test/dt[131],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+133,test/dt[132],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+134,test/dt[133],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+135,test/dt[134],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+136,test/dt[135],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+137,test/dt[136],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+138,test/dt[137],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+139,test/dt[138],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+140,test/dt[139],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+141,test/dt[140],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+142,test/dt[141],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+143,test/dt[142],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+144,test/dt[143],Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+145,test/dt[144],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+146,test/dt[145],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+147,test/dt[146],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+148,test/dt[147],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+149,test/dt[148],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+150,test/dt[149],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+151,test/dt[150],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+152,test/dt[151],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+153,test/dt[152],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+154,test/dt[153],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+155,test/dt[154],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+156,test/dt[155],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+157,test/dt[156],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+158,test/dt[157],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+159,test/dt[158],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+160,test/dt[159],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+161,test/dt[160],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+162,test/dt[161],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+163,test/dt[162],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+164,test/dt[163],Metronidazole: 7.5 mg/kg Per os q6hr,Azathioprine: 3.-5 mg Perr os OD
+165,test/dt[164],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+166,test/dt[165],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+167,test/dt[166],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+168,test/dt[167],Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+169,test/dt[168],Prednisolone: 5-60 mg per day qds,Prednisazole: 5.-60 mg mg per day qds
+170,test/dt[169],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+171,test/dt[170],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+172,test/dt[171],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+173,test/dt[172],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+174,test/dt[173],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+175,test/dt[174],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+176,test/dt[175],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+177,test/dt[176],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+178,test/dt[177],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+179,test/dt[178],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+180,test/dt[179],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+181,test/dt[180],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+182,test/dt[181],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+183,test/dt[182],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+184,test/dt[183],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+185,test/dt[184],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+186,test/dt[185],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+187,test/dt[186],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+188,test/dt[187],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+189,test/dt[188],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+190,test/dt[189],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+191,test/dt[190],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+192,test/dt[191],Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+193,test/dt[192],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+194,test/dt[193],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+195,test/dt[194],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+196,test/dt[195],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+197,test/dt[196],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+198,test/dt[197],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+199,test/dt[198],Quinine: 648 mg Per os every 8 hours for 7 days,Chlorpromazine: 10-25 mg Per os thre trs es a day
+200,test/dt[199],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+201,test/dt[200],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+202,test/dt[201],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+203,test/dt[202],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+204,test/dt[203],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+205,test/dt[204],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+206,test/dt[205],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+207,test/dt[206],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+208,test/dt[207],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+209,test/dt[208],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+210,test/dt[209],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+211,test/dt[210],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+212,test/dt[211],Quinine: 648 mg Per os every 8 hours for 7 days,Quionle: 50-10 mg as needed every 4 to 67 hours
+213,test/dt[212],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+214,test/dt[213],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+215,test/dt[214],Quinine: 648 mg Per os every 8 hours for 7 days,Rituximab: 375 mg/m2 IV once oes a day
+216,test/dt[215],Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+217,test/dt[216],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+218,test/dt[217],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+219,test/dt[218],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+220,test/dt[219],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+221,test/dt[220],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+222,test/dt[221],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+223,test/dt[222],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+224,test/dt[223],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+225,test/dt[224],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+226,test/dt[225],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+227,test/dt[226],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+228,test/dt[227],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+229,test/dt[228],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+230,test/dt[229],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+231,test/dt[230],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+232,test/dt[231],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+233,test/dt[232],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+234,test/dt[233],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+235,test/dt[234],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+236,test/dt[235],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+237,test/dt[236],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+238,test/dt[237],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+239,test/dt[238],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+240,test/dt[239],Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+241,test/dt[240],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+242,test/dt[241],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+243,test/dt[242],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+244,test/dt[243],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+245,test/dt[244],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+246,test/dt[245],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+247,test/dt[246],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+248,test/dt[247],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+249,test/dt[248],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+250,test/dt[249],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+251,test/dt[250],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+252,test/dt[251],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+253,test/dt[252],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+254,test/dt[253],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+255,test/dt[254],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+256,test/dt[255],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+257,test/dt[256],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+258,test/dt[257],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+259,test/dt[258],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+260,test/dt[259],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+261,test/dt[260],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+262,test/dt[261],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+263,test/dt[262],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+264,test/dt[263],Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+265,test/dt[264],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+266,test/dt[265],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+267,test/dt[266],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+268,test/dt[267],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+269,test/dt[268],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+270,test/dt[269],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+271,test/dt[270],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+272,test/dt[271],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+273,test/dt[272],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+274,test/dt[273],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+275,test/dt[274],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+276,test/dt[275],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+277,test/dt[276],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+278,test/dt[277],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+279,test/dt[278],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+280,test/dt[279],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+281,test/dt[280],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+282,test/dt[281],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+283,test/dt[282],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+284,test/dt[283],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+285,test/dt[284],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+286,test/dt[285],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+287,test/dt[286],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+288,test/dt[287],Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+289,Orio_Azathioprine_3rd-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+290,Orio_Risperidone_1st-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+291,Orio_Prednisolone_2nd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+292,Orio_Rituximab_2nd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+293,Orio_Tramadol_1st-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+294,Orio_Quinine_3rd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+295,Orio_Dobutamine_2nd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+296,Orio_Hydroxyzine_2nd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+297,Orio_Ceftriaxone_1st-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+298,Orio_Metronidazole_3rd-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+299,Orio_Chlorpromazine_3rd-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+300,Orio_Lorazepam_1st-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+301,DeGuzman_Quinine_3rd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+302,DeGuzman_Chlorpromazine_2nd-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+303,DeGuzman_Metronidazole_1st-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/mg Per os q6hr
+304,DeGuzman_Azathioprine_2nd-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+305,DeGuzman_Lorazepam_1st-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+306,DeGuzman_Risperidone_2nd-Trial.png,Risperidone: 2 mg orally i/d,Risperidoine: 2 mg  IJ qd
+307,DeGuzman_Prednisolone_1st-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+308,DeGuzman_Ceftriaxone_2nd-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+309,DeGuzman_Dobutamine_2nd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+310,DeGuzman_Tramadol_3rd-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+311,DeGuzman_Rituximab_3rd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+312,DeGuzman_Hydroxyzine_1st-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+313,Matibag_Azathioprine_2nd-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+314,Matibag_Risperidone_1st-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+315,Matibag_Rituximab_3rd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+316,Matibag_Metronidazole_3rd-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+317,Matibag_Tramadol_3rd-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+318,Matibag_Lorazepam_2nd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Chlorpromazine: 10-25 mg Per os three times a day
+319,Matibag_Prednisolone_3rd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+320,Matibag_Ceftriaxone_1st-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+321,Matibag_Hydroxyzine_2nd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+322,Matibag_Chlorpromazine_1st-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+323,Matibag_Dobutamine_3rd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+324,Matibag_Quinine_1st-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+325,Alcantara_Azathioprine_1st-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+326,Alcantara_Ceftriaxone_1st-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+327,Alcantara_Dobutamine_2nd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+328,Alcantara_Chlorpromazine_3rd-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+329,Baon_Rituximab_1st-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+330,Baon_Azathioprine_2nd-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+331,Baon_Metronidazole_1st-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+332,Baon_Ceftriaxone_2nd-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+333,Baon_Quinine_3rd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+334,Baon_Hydroxyzine_3rd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+335,Baon_Risperidone_3rd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+336,Baon_Prednisolone_1st-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+337,Baon_Tramadol_1st-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+338,Baon_Dobutamine_2nd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+339,Baon_Lorazepam_3rd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+340,Baon_Chlorpromazine_2nd-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+341,Lerave_Risperidone_2nd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+342,Lerave_Ceftriaxone_3rd-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+343,Lerave_Chlorpromazine_1st-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+344,Lerave_Tramadol_3nd-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+345,Lerave_Metronidazole_2nd-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+346,Lerave_Dobutamine_1st-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+347,Lerave_Azathioprine_1st-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+348,Lerave_Hydroxyzine_3rd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+349,Lerave_Lorazepam_3rd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+350,Lerave_Rituximab_1st-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+351,Lerave_Quinine_2nd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+352,Lerave_Prednisolone_2nd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+353,Paragas_Dobutamine_1st-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+354,Paragas_Chlorpromazine_3rd-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+355,Paragas_Prednisolone_1st-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+356,Paragas_Quinine_2nd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+357,Paragas_Rituximab_3rd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+358,Paragas_Lorazepam_3rd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+359,Paragas_Hydroxyzine_1st-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+360,Paragas_Risperidone_2nd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+361,Paragas_Tramadol_1st-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+362,Paragas_Ceftriaxone_2nd-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+363,Paragas_Azathioprine_3rd-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+364,Paragas_Metronidazole_1st-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+365,Ong_Azathioprine_3rd-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+366,Ong_Risperidone_2nd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+367,Ong_Rituximab_2nd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+368,Ong_Quinine_1st-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+369,Ong_Ceftriaxone_1st-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+370,Ong_Prednisolone_2nd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+371,Ong_Dobutamine_3rd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+372,Ong_Tramadol_1st-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+373,Ong_Hydroxyzine_1st-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+374,Ong_Lorazepam_2nd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+375,Ong_Metronidazole_2nd-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/ mg  os q6hr
+376,Ong_Chlorpromazine_1st-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+377,Sjoberg_Ceftriaxone_1st-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+378,Sjoberg_Metronidazole_1st-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+379,Sjoberg_Quinine_3rd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+380,Sjoberg_Tramadol_3rd-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+381,Sjoberg_Prednisolone_1st-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+382,Sjoberg_Rituximab_2nd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+383,Sjoberg_Lorazepam_1st-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+384,Sjoberg_Risperidone_2nd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+385,Sjoberg_Chlorpromazine_2nd-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+386,Sjoberg_Dobutamine_2nd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+387,Sjoberg_Azathioprine_3rd-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+388,Sjoberg_Hydroxyzine_3rd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+389,Mossesgeld_Quinine_2nd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+390,Mossesgeld_Lorazepam_3rd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+391,Mossesgeld_Dobutamine_2nd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+392,Mossesgeld_Metronidazole_3rd-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+393,Mossesgeld_Hydroxyzine_3rd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+394,Mossesgeld_Tramadol_3rd-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+395,Mossesgeld_Prednisolone_3rd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+396,Mossesgeld_Chlorpromazine_2nd-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+397,Mossesgeld_Risperidone_2nd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+398,Mossesgeld_Rituximab_1st-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+399,Abanico_Azathioprine_1st-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+400,Abanico_Chlorpromazine_1st-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+401,Abanico_Ceftriaxone_2nd-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+402,Abanico_Azathioprine_3rd-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+403,Abanico_Ceftriaxone_1st-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+404,Abanico_Tramadol_1st-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+405,Abanico_Hydroxyzine_3rd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+406,Abanico_Rituximab_2nd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Ribuximab: 50-100 mg/ mg as e ekly
+407,Abanico_Dobutamine_3rd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+408,Abanico_Metronidazole_1st-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+409,Abanico_Prednisolone_1st-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+410,Abanico_Quinine_2nd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+411,Abanico_Risperidone_2nd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+412,Abanico_Tramadol_3rd-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+413,Abanico_Prednisolone_3rd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+414,Abanico_Rituximab_3rd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+415,Abanico_Metronidazole_3rd-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+416,Abanico_Lorazepam_3rd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+417,Abanico_Dobutamine_1st-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+418,Abanico_Lorazepam_2nd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+419,Abanico_Chlorpromazine_3rd-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+420,Abanico_Quinine_3rd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+421,Abanico_Risperidone_3rd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+422,Abanico_Hydroxyzine_2nd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+423,Mercado_Chlorpromazine_1st-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+424,Mercado_Tramadol_2nd-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+425,Mercado_Hydroxyzine_3rd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+426,Mercado_Prednisolone_3rd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+427,Mercado_Lorazepam_3rd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+428,Mercado_Ceftriaxone_1st-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+429,Mercado_Risperidone_2nd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+430,Mercado_Rituximab_2nd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+431,Mercado_Azathioprine_1st-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+432,Mercado_Quinine_2nd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+433,Mercado_Dobutamine_1st-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+434,Mercado_Metronidazole_3rd-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/ kg Per os q6hr
+435,Oliman_Ceftriaxone_3rd-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+436,Oliman_Rituximab_3rd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+437,Oliman_Azathioprine_3rd-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+438,Oliman_Metronidazole_1st-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+439,Oliman_Hydroxyzine_2nd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+440,Oliman_Tramadol_1st-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+441,Oliman_Risperidone_3rd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+442,Oliman_Chlorpromazine_1st-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+443,Oliman_Prednisolone_2nd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+444,Oliman_Lorazepam_2nd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+445,Oliman_Dobutamine_1st-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+446,Oliman_Quinine_2nd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+447,Ordinanza_Ceftriaxone_2nd-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+448,Ordinanza_Chlorpromazine_1st-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+449,Ordinanza_Dobutamine_3rd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+450,Ordinanza_Azathioprine_1st-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+451,Ordinanza_Risperidone_3rd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+452,Ordinanza_Rituximab_2nd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+453,Ordinanza_Metronidazole_1st-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+454,Ordinanza_Tramadol_1st-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+455,Ordinanza_Quinine_1st-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+456,Ordinanza_Hydroxyzine_3rd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+457,Ordinanza_Lorazepam_2nd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+458,Ordinanza_Prednisolone_3rd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+459,Decasa_Metronidazole_3rd-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+460,Decasa_Azathioprine_1st-Trial.png,Azathioprine: 3-5 mg Per os OD,Azathioprine: 3-5 mg Per os OD
+461,Decasa_Chlorpromazine_1st-Trial.png,Chlorpromazine: 10-25 mg Per os three times a day,Chlorpromazine: 10-25 mg Per os three times a day
+462,Decasa_Rituximab_2nd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+463,Decasa_Risperidone_2nd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+464,Decasa_Dobutamine_1st-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
+465,Decasa_Prednisolone_3rd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+466,Decasa_Tramadol_2nd-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+467,Decasa_Ceftriaxone_1st-Trial.png,Ceftriaxone: 2 g IV q24h,Ceftriaxone: 2 g IV q24h
+468,Decasa_Hydroxyzine_3rd-Trial.png,Hydroxyzine: 50-100 mg by IJ qds,Hydroxyzine: 50-100 mg by IJ qds
+469,Decasa_Quinine_2nd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Quinine: 648 mg Per os every 8 hours for 7 days
+470,Decasa_Lorazepam_3rd-Trial.png,Lorazepam: 1 mg Per os 2 times a day,Lorazepam: 1 mg Per os 2 times a day
+471,Canor_Rituximab_2nd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+472,Canor_Tramadol_1st-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+473,Canor_Azathioprine_2nd-Trial.png,Azathioprine: 3-5 mg Per os OD,Risperidone: 2 mg orally i/d
+474,Canor_Metronidazole_3rd-Trial.png,Metronidazole: 7.5 mg/kg Per os q6hr,Metronidazole: 7.5 mg/kg Per os q6hr
+475,Canor_Tramadol_3rd-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+476,Canor_Quinine_2nd-Trial.png,Quinine: 648 mg Per os every 8 hours for 7 days,Chlorpromazine: 10-25 mg Per os three times a day
+477,Canor_Rituximab_3rd-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+478,Canor_Prednisolone_3rd-Trial.png,Prednisolone: 5-60 mg per day qds,Prednisolone: 5-60 mg per day qds
+479,Canor_Risperidone_2nd-Trial.png,Risperidone: 2 mg orally i/d,Risperidone: 2 mg orally i/d
+480,Canor_Tramadol_2nd-Trial.png,Tramadol: 50-100 mg as needed every 4 to 6 hours,Tramadol: 50-100 mg as needed every 4 to 6 hours
+481,Canor_Rituximab_1st-Trial.png,Rituximab: 375 mg/m2 IV once weekly,Rituximab: 375 mg/m2 IV once weekly
+482,Canor_Dobutamine_3rd-Trial.png,Dobutamine: 2.5-15 mcg/kg/min,Dobutamine: 2.5-15 mcg/kg/min
